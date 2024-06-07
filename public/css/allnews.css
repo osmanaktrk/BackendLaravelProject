@@ -1,0 +1,103 @@
+.all-news-head{
+    text-align: center;
+}
+
+
+.category-news{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    border: transparent;
+    border-radius: 50px;
+    margin: 50px auto;
+    background-color: wheat;
+    max-width: 1000px;
+    padding-top: 50px;
+    
+}
+
+.category-all{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 50px;
+    
+}
+
+.categories{
+    width: 100%;
+    max-width: 200px;
+    background-color: aliceblue;
+    border-radius: 25px;
+    padding-top: 50px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+
+.all-news-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+   
+    
+}
+
+.all-news{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 25px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+
+.all-news-img{
+    width: 100%;
+    margin: 5px;
+    
+}
+.all-news-title{
+    width: 100%;
+    text-align: justify;
+    margin-top: 10px;
+    color: black;
+    margin-left: 20px;
+}
+.all-news-img>img{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+
+.all-news-category{
+    margin-top: 10px;
+    display: inline-block;
+    border: solid transparent;
+    padding: 5px;
+    background-color: crimson;
+    width: 70px;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+}
+
+.all-news-writer{
+    margin-top: 10px;
+    display: inline-block;
+    border: solid transparent;
+    padding: 5px;
+    width: 150px;
+    text-align: center;
+    border-radius: 10px;
+}

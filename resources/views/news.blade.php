@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('css')
-    <link rel="stylesheet" href="{{asset("css/lastnews.css")}}">
+    <link rel="stylesheet" href="{{asset("css/news.css")}}">
 @endsection
 @section('title')
     <title>Last News</title>

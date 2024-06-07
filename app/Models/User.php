@@ -48,4 +48,12 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function news(){
+        return $this->hasMany('App/Models/News');
+    }
+
+    public function comments(){
+        return $this->hasMany('App/Models/Comment');
+    }
 }

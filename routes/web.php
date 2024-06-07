@@ -4,8 +4,24 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/home', function(){
+    return view('home');
+});
+
+Route::get('/news', function(){
+    return view('news');
+})->name('news');
+
+Route::get('/allnews', function(){
+    return view('allnews');
+})->name('allnews');
+
+Route::get('/writenews', function(){
+    return view('writenews');
+})->name('writenews');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -18,17 +34,9 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/home', function(){
-    return view('home');
-});
 
-Route::get('/lastnews', function(){
-    return view('lastnews');
-});
 
-Route::get('/allnews', function(){
-    return view('allnews');
-});
+
 
 
 

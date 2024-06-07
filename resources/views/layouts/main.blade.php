@@ -13,13 +13,13 @@
 
     <header class="header">
         <ul class="nav-ul">
-            <a href="#">
+            <a href="/">
                 <li>HOME</li>
             </a>
-            <a href="#">
+            <a href="{{route('news')}}">
                 <li>LATEST NEWS</li>
             </a>
-            <a href="#">
+            <a href="{{route('allnews')}}">
                 <li>ALL NEWS</li>
             </a>
             <a href="#">
@@ -29,16 +29,19 @@
                 <li>FAQ</li>
             </a>
             @guest
-            <a href="#">
+            <a href="{{ route('login') }}">
                 <li>LOG IN</li>
             </a>
-            <a href="#">
+            <a href="{{ route('register') }}">
                 <li>REGISTER</li>
+            </a>
+            <a href="{{route('writenews')}}">
+                <li>WRITE NEWS</li>
             </a>
             @endguest
             @auth
                 @if (Auth::user()->usertype == 'writer')
-                <a href="#">
+                <a href="{{route('writenews')}}">
                     <li>WRITE NEWS</li>
                 </a>
                 @endif
@@ -72,6 +75,7 @@
 
     </footer>
 
+    @yield('js')
 </body>
 
 </html>

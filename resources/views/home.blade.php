@@ -50,7 +50,7 @@
         <h2>Latest 5 News</h2>
 
         <div class="category-latest-5">
-            <div class="categories">
+            {{-- <div class="categories">
                 <h4>Categories</h4>
                 <div>
                     <label for="demo1">Demo1</label>
@@ -65,7 +65,7 @@
                     <input type="checkbox" name="demo3" id="demo3">
                 </div>
                 
-            </div>
+            </div> --}}
             <div class="latest-5-news-container">
                 
                 <div class="latest-5-news">
