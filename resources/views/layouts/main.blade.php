@@ -16,10 +16,10 @@
             <a href="/">
                 <li>HOME</li>
             </a>
-            <a href="{{route('news')}}">
+            <a href="{{route('latest-news')}}">
                 <li>LATEST NEWS</li>
             </a>
-            <a href="{{route('allnews')}}">
+            <a href="{{route('all-news')}}">
                 <li>ALL NEWS</li>
             </a>
             <a href="#">
@@ -28,6 +28,15 @@
             <a href="#">
                 <li>FAQ</li>
             </a>
+
+            {{-- daha sonra silinecek --}}
+            <a href="{{route('profile.edit')}}">
+                <li>PROFILE</li></a>
+
+            <a href="{{route('write-news')}}">
+                <li>WRITE NEWS</li>
+            </a>
+            
             @guest
             <a href="{{ route('login') }}">
                 <li>LOG IN</li>
@@ -35,19 +44,17 @@
             <a href="{{ route('register') }}">
                 <li>REGISTER</li>
             </a>
-            <a href="{{route('writenews')}}">
-                <li>WRITE NEWS</li>
-            </a>
             @endguest
+
             @auth
                 @if (Auth::user()->usertype == 'writer')
-                <a href="{{route('writenews')}}">
+                <a href="{{route('write-news')}}">
                     <li>WRITE NEWS</li>
                 </a>
                 @endif
 
                 @if (Auth::user()->usertype == "admin")
-                <a href="#">
+                <a href="{{route('write-news')}}">
                     <li>WRITE NEWS</li>
                 </a>
                 <a href="#">
@@ -59,7 +66,13 @@
 
 
         <div class="nav-user">
-            user info
+            <div class="user-avatar">
+                <a href="{{route('profile.edit')}}"><img src="{{asset('img/avatars/default.svg')}}" alt="User Avatar"></a>
+                <span class="username">Welcome Username</span>
+                <form action="{{ route('logout') }}" method="post">
+                    <input type="submit" value="LOG OUT">
+                </form>
+            </div>
         </div>
     </header>
 

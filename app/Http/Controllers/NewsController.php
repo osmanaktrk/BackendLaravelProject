@@ -7,12 +7,23 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
+
+    public function home(){
+        return view('home');
+    }
+
+  
+    public function lastNews(){
+        return view('news');
+    }
+
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('all-news');
     }
 
     /**
@@ -20,7 +31,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('write-news');
     }
 
     /**

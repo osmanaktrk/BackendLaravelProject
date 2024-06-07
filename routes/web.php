@@ -2,26 +2,28 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CategoryController;
 
-Route::get('/', function () {
-    return view('home');
-});
 
-Route::get('/home', function(){
-    return view('home');
-});
+
+Route::get('/', [NewsController::class, 'home']);
+
+Route::get('/home', [NewsController::class, 'home'])->name('home');
+
+Route::get('/all-news', [NewsController::class, 'index'])->name('all-news');
+
+Route::get('/write-news', [NewsController::class, 'create'])->name('write-news');
+
+Route::get('/latest-news', [NewsController::class, 'lastNews'])->name('latest-news');
 
 Route::get('/news', function(){
     return view('news');
 })->name('news');
 
-Route::get('/allnews', function(){
-    return view('allnews');
-})->name('allnews');
 
-Route::get('/writenews', function(){
-    return view('writenews');
-})->name('writenews');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
