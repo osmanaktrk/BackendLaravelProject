@@ -1,7 +1,13 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .news-container{
     max-width: 1200px;
-    margin: 50px auto;
-    padding: 25px;
+    margin: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,12 +19,16 @@
 
 .news-img{
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
 
 .news-img>img{
     max-width: 80%;
     max-height: 80%;
+    aspect-ratio: auto;
 }
 
 .news-content{
@@ -74,7 +84,7 @@
 }
 
 .comment-write{
-    max-width: 500px;
+    width: 500px;
     margin: 50px auto;
     padding: 25px;
     display: flex;
@@ -91,6 +101,10 @@
 
 .comment-write>textarea{
     width: 90%;
+    
     min-height: 200px;
 }
 
+.comment_guest{
+    text-align: center;
+}

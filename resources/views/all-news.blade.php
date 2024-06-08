@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('css')
-    <link rel="stylesheet" href="{{asset('css/allnews.css')}}">
+    <link rel="stylesheet" href="{{asset('css/all-news.css')}}">
 @endsection
 
 @section('title')
@@ -11,6 +11,8 @@
 @section('content')
 
 <main>
+
+   
     <h1 class="all-news-head">All News</h1>
     
     <div class="category-news">
@@ -36,7 +38,10 @@
             <div class="all-news-container">
                 
                 <div class="all-news">
-                    <div class="all-news-img"><img src="{{asset('img/news/demo.webp')}}" alt="demo">
+                    <div class="all-news-img">
+                        <div class="all-news-img-box">
+                            <img src="{{asset('img/news/demo.webp')}}" alt="demo">
+                        </div>
                         <span class="all-news-category">Category</span>
                         <span class="all-news-writer">by Osman at date </span>
                     </div>
@@ -47,7 +52,10 @@
                 </div>
                 
                 <div class="all-news">
-                    <div class="all-news-img"><img src="{{asset('img/news/demo.webp')}}" alt="demo">
+                    <div class="all-news-img">
+                        <div class="all-news-img-box">
+                            <img src="{{asset('img/news/demo.webp')}}" alt="demo">
+                        </div>
                         <span class="all-news-category">Category</span>
                         <span class="all-news-writer">by Osman at date </span>
                     </div>
@@ -58,7 +66,10 @@
                 </div>
 
                 <div class="all-news">
-                    <div class="all-news-img"><img src="{{asset('img/news/demo.webp')}}" alt="demo">
+                    <div class="all-news-img">
+                        <div class="all-news-img-box">
+                            <img src="{{asset('img/news/demo.webp')}}" alt="demo">
+                        </div>
                         <span class="all-news-category">Category</span>
                         <span class="all-news-writer">by Osman at date </span>
                     </div>
@@ -69,7 +80,10 @@
                 </div>
 
                 <div class="all-news">
-                    <div class="all-news-img"><img src="{{asset('img/news/demo.webp')}}" alt="demo">
+                    <div class="all-news-img">
+                        <div class="all-news-img-box">
+                            <img src="{{asset('img/news/demo.webp')}}" alt="demo">
+                        </div>
                         <span class="all-news-category">Category</span>
                         <span class="all-news-writer">by Osman at date </span>
                     </div>
@@ -78,6 +92,7 @@
                         veritatis. Aperiam, culpa quibusdam nisi molestias ipsum iusto excepturi, omnis a impedit corrupti,
                         assumenda esse veniam. Alias dicta esse id nemo tempore?</a>
                 </div>
+
             </div>
         </div>
 

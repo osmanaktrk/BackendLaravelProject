@@ -1,8 +1,16 @@
-html, body{
-    box-sizing: border-box;
+html{
+    width: 100%;
     margin: 0;
+    padding: 0;
     
-    
+}
+
+
+body{
+    box-sizing: border-box;
+    width: 97%;
+    margin: 0;
+    padding: 0;
 }
 
 .header{
@@ -13,12 +21,12 @@ html, body{
     background-color: orangered;
     color: azure;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
+    
 }
 
 .nav-ul{
     list-style:none;
-    margin-right: 50px;
+   
     
 
 }
@@ -41,20 +49,25 @@ html, body{
 
 .header{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
 
 }
 
 .nav-user{
-    margin-left: 50px;
+    
     display: flex;
     justify-content: flex-end;
     align-items: center;
+   
 }
 .nav-user>*{
     display: inline-block;
     margin: 0 5px;
     
+}
+.nav-user>div>*{
+    margin: 2px;
 }
 
 
@@ -91,5 +104,18 @@ html, body{
 
 }
 
+.error{
+    color: red;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
+main{
+    width: 100%;
+}
 
+.status{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color:greenyellow;
+
+}
