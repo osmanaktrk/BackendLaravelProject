@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -26,9 +27,33 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store($newsId, Request $request)
     {
-        //
+        $validated = $request->validate([
+            'comment'=> ['required', 'min:5'],
+        ]);
+
+        $comment = new Comment();
+        $comment->user_id = Auth::user()->id;
+        $comment->news_id = $newsId;
+        $comment->comment = $validated['comment'];
+        $comment->save();
+   
+        
+        return redirect()->back()->with("status", "COMMENT CREATED");
+    }
+
+    public function delete($id, Request $request)
+    {
+        $comment = Comment::findOrFail($id);
+        if(Auth::user()->id != $comment->user_id || Auth::user()->usertype != 'admin'){
+            abort(403, "UNAUTHORIZED ENTRY");
+        }
+
+        $comment->deleteOrFail();
+       
+
+        return redirect()->back()->with("status", "COMMENT DELETED");
     }
 
     /**
@@ -50,9 +75,18 @@ class CommentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comment $comment)
+    public function update($id, Request $request)
     {
-        //
+        
+        $comment = Comment::findOrFail($id);
+        $validated = $request->validate([
+            'comment'=> ['required', 'min:5'],
+        ]);
+
+        $comment->comment = $validated['comment'];
+        $comment->save();
+
+        return redirect()->back()->with("status", "COMMENT EDITED");
     }
 
     /**

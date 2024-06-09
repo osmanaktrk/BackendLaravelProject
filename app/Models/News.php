@@ -10,18 +10,18 @@ class News extends Model
     use HasFactory;
 
     protected $table = 'news';
-    protected $fillable = ['title', 'cover', 'content', 'user_id', 'category_id', 'created_at'];
+    protected $fillable = ['id' ,'title', 'cover', 'content', 'user_id', 'category_id', 'created_at'];
 
     public function user(){
-        return $this->belongsTo('App/Models/User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function category(){
-        return $this->belongsTo('App/Models/Category');
+        return $this->belongsTo('App\Models\Category');
     }
 
     public function comments(){
-        return $this->hasMany('App/Models/Comment');
+        return $this->hasMany('App\Models\Comment');
     }
 
 }

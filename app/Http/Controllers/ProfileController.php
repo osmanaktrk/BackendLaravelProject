@@ -15,7 +15,7 @@ class ProfileController extends Controller
 
     public function userInfo(Request $request){
         $validated = $request->validate([
-            'avatar' => ['required', 'image', 'max:10240', 'extensions:jpg, jpeg, png, bmp, gif, svg, webp'],
+            'avatar' => ['required', 'image', 'max:10240'],
             'birthday' => ['required', 'date'],
             'about' =>['required', 'min:5'],
 
@@ -29,9 +29,9 @@ class ProfileController extends Controller
         $user->avatar = 'img/avatars/'.$avatar;
         $user->birthday = $validated['birthday'];
         $user->about = $validated['about'];
-        $user->update();
+        $user->save();
 
-        return Redirect::route('profile.info')->with('status', 'PROFILE INFORMATIONS SAVED');
+        return redirect()->route('profile.info')->with('status', 'PROFILE INFORMATIONS SAVED');
 
     }
 

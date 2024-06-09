@@ -14,11 +14,11 @@ class Comment extends Model
     protected $fillable = ['user_id', 'news_id', 'comment', 'created_at'];
 
     public function user(){
-        return $this->belongsTo('App/Models/User');
+        return $this->belongsTo('App\Models\User');
     }
     
     public function news(){
-        return $this->belongsTo('App/Models/News');
+        return $this->belongsTo('App\Models\News');
     }
 
 }

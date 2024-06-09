@@ -73,24 +73,46 @@ body{
 
 .user-avatar{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-}
 
+}
+.user-avatar>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+input[type="submit"]{
+    margin: 10px 0;
+}
 .user-avatar>a{
     width: 60px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
+    
+  
 }
+
+
 
 
 .user-avatar>a>img{
-    max-width: 50px;
-    border: 1px solid black;
+    max-height: 100%;
+    max-height: 100%;
+    aspect-ratio: auto;
     border-radius: 50%;
-    padding: 2px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
+    
 }
 
 

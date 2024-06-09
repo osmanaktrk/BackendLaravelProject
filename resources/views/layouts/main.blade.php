@@ -64,12 +64,16 @@
             <div class="nav-user">
                 <div class="user-avatar">
                     <a href="{{ route('profile.edit') }}"><img src="{{asset(Auth::user()->avatar) }}"
-                            alt="User Avatar"></a>
-                    <span class="username">Welcome {{Auth::user()->name}}</span>
-                    <form action="{{ route('logout') }}" method="post">
-                        @csrf
-                        <input type="submit" value="LOG OUT" onclick="return confirm('ARE YOU SURE YOU WANT TO LOG OUT?')">
-                    </form>
+                    alt="User Avatar">
+                    </a>
+                    <div>
+                        <span class="username">Welcome {{Auth::user()->name}}</span>
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <input type="submit" value="LOG OUT" onclick="return confirm('ARE YOU SURE YOU WANT TO LOG OUT?')">
+                        </form>
+                    </div>
+                   
                 </div>
             </div>
         @endauth

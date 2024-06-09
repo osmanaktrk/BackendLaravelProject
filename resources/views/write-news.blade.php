@@ -11,7 +11,7 @@
 @section('content')
 <main>
 
-    <form class="form" action="" method="post" enctype="multipart/form-data">
+    <form class="form" action="{{route('store-news')}}" method="post" enctype="multipart/form-data">
         
         @csrf
 
@@ -20,7 +20,7 @@
             @error('title')
                 <span class="error">{{$message}}</span>
             @enderror
-            <input type="text" name="title" id="title">
+            <input type="text" name="title" id="title" value="{{old('title')}}">
         </div>
         
 
@@ -32,7 +32,7 @@
             @error('cover')
                 <span class="error">{{$message}}</span>
             @enderror
-            <input accept="image/*" type="file" name="cover" id="cover">
+            <input accept="image/*" type="file" name="cover" id="cover" value="{{old('cover')}}">
         </div>
         
         <div class="category">
@@ -40,10 +40,11 @@
             @error('category')
                 <span class="error">{{$message}}</span>
             @enderror
-            <select name="category" id="category">
-                <option value="1">Category1</option>
-                <option value="2">Category2</option>
-                <option value="3">Category3</option>
+            <select name="category" id="category" >
+                @foreach ($categories as $category)
+                    <option value="{{$category->id}}">{{$category->category}}</option>
+                @endforeach
+                
             </select>
         </div>
         <div class="content">
@@ -51,7 +52,7 @@
             @error('content')
                 <span class="error">{{$message}}</span>
             @enderror
-            <textarea name="content" id="content"></textarea>
+            <textarea name="content" id="content">{{old('content')}}</textarea>
         </div>
 
         <div class="submit">

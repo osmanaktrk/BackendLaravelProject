@@ -14,6 +14,6 @@ class Category extends Model
     protected $fillable = ['id', 'category'];
 
     public function news(){
-        return $this->hasMany('App/Models/News');
+        return $this->hasMany('App\Models\News');
     }
 }

@@ -18,9 +18,7 @@ Route::get('/all-news', [NewsController::class, 'index'])->name('all-news');
 
 Route::get('/latest-news', [NewsController::class, 'lastNews'])->name('latest-news');
 
-Route::get('/news', function(){
-    return view('news');
-})->name('news');
+Route::get('/news/{newsId}',[NewsController::class, 'showNewsById'] )->name('news');
 
 
 
@@ -33,18 +31,38 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     Route::put('/profile', [ProfileController::class, 'userInfo'])->name('profile.info');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-
-Route::middleware(['auth', 'verified'])->group(function(){
-
+    
     Route::get('/write-news', [NewsController::class, 'create'])->name('write-news');
+    
+    Route::post('/write-news', [NewsController::class, 'store'])->name('store-news');
+    
+    Route::get('/edit-news/{id}', [NewsController::class, 'showEdit'])->name('edit-news');
+    
+    Route::put('/edit-news/{id}', [NewsController::class, 'storeEdit'])->name('edit-news');
+    
+    Route::delete('/delete-news/{id}', [NewsController::class, 'delete'])->name('delete-news');
+
+    Route::post('comment-write{newsId}', [CommentController::class, 'store'] )->name("comment-write");
+    
+    Route::put('comment-update{id}', [CommentController::class, 'update'] )->name("comment-update");
+    
+    Route::delete('comment-delete{id}', [CommentController::class, 'delete'] )->name("comment-delete");
+
+
+
+
 
 
 });
+
+
+
 
 
 

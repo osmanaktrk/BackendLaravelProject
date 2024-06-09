@@ -70,17 +70,23 @@
 }
 
 .comment-container{
-    max-width: 500px;
+    width: 500px;
+    min-height: 300px;
     margin: 50px auto;
     padding: 25px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     text-align: justify;
     background-color: whitesmoke;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 
+}
+
+.comment{
+    max-width: 80%;
 }
 
 .comment-write{
@@ -101,10 +107,82 @@
 
 .comment-write>textarea{
     width: 90%;
-    
     min-height: 200px;
 }
 
 .comment_guest{
     text-align: center;
+}
+
+.comment-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-top>*{
+    display: inline-block;
+    margin: 0 10px;
+}
+
+
+
+.delete-btn{
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+}
+
+
+.edit-comment{
+    width: 80%;
+    margin: 50px auto;
+    padding: 25px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    background-color: whitesmoke;
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+
+
+
+
+.edit-comment>form{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    
+    
+}
+
+.edit-comment>form>textarea{
+    width: 90%;
+    min-height: 200px;
+}
+
+.edit-news-btn{
+    text-decoration: none;
+    margin: 10px;
+    border: 2px solid blue;
+    display: inline-block;
+    padding: 5px;
+    color: white;
+    background-color: blue;
+}
+
+.delete-news-btn{
+    padding: 5px;
+    background-color: red;
+    color: white;
 }

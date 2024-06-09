@@ -50,10 +50,10 @@ class User extends Authenticatable
     }
 
     public function news(){
-        return $this->hasMany('App/Models/News');
+        return $this->hasMany('App\Models\News');
     }
 
     public function comments(){
-        return $this->hasMany('App/Models/Comment');
+        return $this->hasMany('App\Models\Comment');
     }
 }
