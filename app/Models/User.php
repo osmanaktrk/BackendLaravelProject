@@ -64,4 +64,8 @@ class User extends Authenticatable
     public function FaqRequests(){
         return $this->hasMany('App\Models\QuestionRequest');
     }
+
+    public function UsertypeRequest(){
+        return $this->hasMany('App\Models\UsertypeRequest');
+    }
 }

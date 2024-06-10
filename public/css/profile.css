@@ -23,18 +23,13 @@
     margin: 5px 0;
 }
 
-/* #current_usertype{
-    height: 25px;
-    width: 80px;
-    text-align: center;
-}
 
 #usertype{
     height: 30px;
     width: 100px;
     text-align: center;
     margin: 5px 0;
-} */
+} 
 
 input[type="submit"]{
     margin: 10px 0;
@@ -82,8 +77,10 @@ input[type="submit"]{
 }
 
 .profile-information-about>textarea{
-    width: 99%;
+    width: 95%;
     height: 300px;
+    padding: 5px;
+    
    
 }
 

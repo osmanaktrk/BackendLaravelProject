@@ -50,7 +50,7 @@
                     <a href="{{ route('write-news') }}">
                         <li>WRITE NEWS</li>
                     </a>
-                    <a href="#">
+                    <a href="{{route('admin-dashboard')}}">
                         <li>ADMIN DASHBOARD</li>
                     </a>
                 @endif

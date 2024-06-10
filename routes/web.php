@@ -8,6 +8,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuestionRequestController;
+use App\Http\Controllers\UsertypeRequestController;
+use App\Http\Controllers\AdminController;
 
 
 
@@ -24,8 +26,11 @@ Route::get('/latest-news', [NewsController::class, 'lastNews'])->name('latest-ne
 
 Route::get('/news/{newsId}',[NewsController::class, 'showNewsById'] )->name('news');
 
+Route::get('/fag', [QuestionController::class, 'index'])->name('faq');
+
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -60,8 +65,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('comment-delete{id}', [CommentController::class, 'delete'] )->name("comment-delete");
 
 
-    Route::get('/fag', [QuestionController::class, 'index'])->name('faq');
-
     Route::post('/faq', [QuestionController::class, 'store'])->name('faq-create');
 
     Route::delete('/faq/{id}', [QuestionController::class, 'delete'])->name('faq-delete');
@@ -70,9 +73,9 @@ Route::middleware('auth')->group(function () {
     
     Route::post('faq-request', [QuestionRequestController::class, 'store'])->name('faq-request');
 
- 
+    Route::post("/usertype-request", [UsertypeRequestController::class, 'store'])->name('usertype-request');
 
-
+    Route::get('/admin', [AdminController::class, 'index'])->name("admin-dashboard");
 
 });
 

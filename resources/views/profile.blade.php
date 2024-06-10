@@ -12,7 +12,7 @@
     <main>
 
         <div class="profile">
-            
+
 
             <form id="send-verification" method="post" action="{{ route('verification.send') }}">
                 @csrf
@@ -24,24 +24,24 @@
                 <h3>Profile Information</h3>
                 <p>Update your account's profile information.</p>
 
-                <form action="{{route('profile.info')}}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('profile.info') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('put')
 
                     <div class="profile-information-avatar">
                         <div class="profile-avatar-box">
-                            <img id="profile-avatar" src="{{asset($user->avatar)}}" alt="Profile Avatar">
+                            <img id="profile-avatar" src="{{ asset($user->avatar) }}" alt="Profile Avatar">
                         </div>
                         <input type="file" name="avatar" id="avatar" accept="image/*" required>
                         @error('avatar')
-                            <span class="error">{{$message}}</span>
+                            <span class="error">{{ $message }}</span>
                         @enderror
                     </div>
 
                     <div class="profile-information-birthday">
                         <label for="birthday">Birthday: </label>
                         @error('birthday')
-                            <span class="error">{{$message}}</span>
+                            <span class="error">{{ $message }}</span>
                         @enderror
                         <input type="date" name="birthday" id="birthday" value="{{ old('birthday', $user->birthday) }}">
                     </div>
@@ -49,7 +49,7 @@
                     <div class="profile-information-about">
                         <label for="about">About Me: </label><br><br>
                         @error('about')
-                            <span class="error">{{$message}}</span>
+                            <span class="error">{{ $message }}</span>
                         @enderror
                         <textarea name="about" id="about">{{ old('about', $user->about) }}</textarea>
                     </div>
@@ -76,7 +76,8 @@
                         @error('name')
                             <span class="error">{{ $message }}</span>
                         @enderror
-                        <input class="input-box" type="text" name="name" id="name" value="{{ old('name', $user->name) }}" required>
+                        <input class="input-box" type="text" name="name" id="name"
+                            value="{{ old('name', $user->name) }}" required>
                     </div>
 
                     <div class="profile-register-email">
@@ -84,8 +85,8 @@
                         @error('email')
                             <span class="error">{{ $message }}</span>
                         @enderror
-                        <input class="input-box" type="email" name="email" id="email" value="{{ old('email', $user->email) }}"
-                            required>
+                        <input class="input-box" type="email" name="email" id="email"
+                            value="{{ old('email', $user->email) }}" required>
                     </div>
                     <input type="submit" value="UPDATE">
 
@@ -109,8 +110,8 @@
                         @error('current_password')
                             <span class="error">{{ $message }}</span>
                         @enderror
-                        <input class="input-box" type="password" name="current_password" id="update_password_current_password"
-                            autocomplete="current-password" required>
+                        <input class="input-box" type="password" name="current_password"
+                            id="update_password_current_password" autocomplete="current-password" required>
                     </div>
 
 
@@ -119,8 +120,8 @@
                         @error('current_password')
                             <span class="error">{{ $message }}</span>
                         @enderror
-                        <input class="input-box" type="password" name="password" id="update_password_password" autocomplete="new-password"
-                            required>
+                        <input class="input-box" type="password" name="password" id="update_password_password"
+                            autocomplete="new-password" required>
                     </div>
 
 
@@ -129,8 +130,8 @@
                         @error('password_confirmation')
                             <span class="error">{{ $message }}</span>
                         @enderror
-                        <input class="input-box" type="password" name="password_confirmation" id="update_password_password_confirmation"
-                            autocomplete="new-password" required>
+                        <input class="input-box" type="password" name="password_confirmation"
+                            id="update_password_password_confirmation" autocomplete="new-password" required>
                     </div>
 
                     <input type="submit" value="UPDATE">
@@ -140,30 +141,87 @@
 
             </div>
 
-            {{-- <div class="profile-usertype">
+            <div class="profile-usertype">
                 <h3>User Type</h3>
                 <p>Create a request to change user type</p>
-                <form action="" method="post">
+                <form action="{{ route('usertype-request') }}" method="post">
                     @csrf
 
+                    <input type="number" name="user_id" id="user_id" value="{{ Auth::user()->id }}" readonly hidden
+                        required>
+
                     <div class="profile-usertype-update">
-                        <label for="current_usertype">Current User Type: </label>
-                        <input type="text" name="current_usertype" id="current_usertype" value="{{$user->usertype}}" readonly>
-                        <br>
+
+
                         <label for="usertype">Requested User Type: </label>
-                        <select name="usertype" id="usertype">
-                            <option value="user">user</option>
-                            <option value="writer">writer</option>
-                            <option value="admin">admin</option>
-                        </select>
+                        @if (Auth::user()->UsertypeRequest->count() > 0)
+                            <select name="usertype" id="usertype" required disabled>
+
+                                @if (Auth::user()->usertype == 'user')
+                                    <option selected disabled value="user">user</option>
+                                @else
+                                    <option value="user">user</option>
+                                @endif
+
+                                @if (Auth::user()->usertype == 'writer')
+                                    <option selected disabled value="writer">writer</option>
+                                @else
+                                    <option value="writer">writer</option>
+                                @endif
+
+                                @if (Auth::user()->usertype == 'admin')
+                                    <option selected disabled value="admin">admin</option>
+                                @else
+                                    <option value="admin">admin</option>
+                                @endif
+
+
+
+
+                            </select>
+                            <span class="error">ALREADY REQUESTED</span>
+                        @else
+                            <select name="usertype" id="usertype" required>
+
+                                @if (Auth::user()->usertype == 'user')
+                                    <option selected disabled value="user">user</option>
+                                @else
+                                    <option value="user">user</option>
+                                @endif
+
+                                @if (Auth::user()->usertype == 'writer')
+                                    <option selected disabled value="writer">writer</option>
+                                @else
+                                    <option value="writer">writer</option>
+                                @endif
+
+                                @if (Auth::user()->usertype == 'admin')
+                                    <option selected disabled value="admin">admin</option>
+                                @else
+                                    <option value="admin">admin</option>
+                                @endif
+
+
+
+
+                            </select>
+                        @endif
+
+
                     </div>
 
+                    @if (Auth::user()->UsertypeRequest->count() > 0)
+                        <input type="submit" value="REQUEST" disabled>
+                        <span class="error">ALREADY REQUESTED</span>
+                    @else
+                        <input type="submit" value="REQUEST">
+                    @endif
 
-                    <input type="submit" value="REQUEST">
+                    
 
                 </form>
 
-            </div> --}}
+            </div>
 
 
             <div class="profile-delete">
@@ -176,7 +234,8 @@
                     @csrf
                     @method('delete')
 
-                    <input type="submit" value="DELETE ACCOUNT" onclick="return confirm('ARE YOU SURE YOU WANT TO DELETE YOUR ACCOUNT')">
+                    <input type="submit" value="DELETE ACCOUNT"
+                        onclick="return confirm('ARE YOU SURE YOU WANT TO DELETE YOUR ACCOUNT')">
                 </form>
 
             </div>
