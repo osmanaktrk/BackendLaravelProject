@@ -117,6 +117,48 @@ class AdminUsersController extends Controller
         return redirect()->back()->with('status', 'USERINFORMATIONS UPDATED');
     }
 
+    public function createUser(Request $request){
+
+        $validated = $request->validate([
+            "name" => 'required',
+            "email" => ['required', 'email'],
+            'avatar' => ['image', 'max:10240'],
+            'usertype' => 'required',
+            'password' => ['required', 'min:8'],
+
+        ]);
+
+        $user = new User();
+
+        $user->name = $validated['name'];
+        $user->email = $validated['email'];
+        $user->usertype = $validated['usertype'];
+        $user->password = Hash::make($validated['password']);
+
+
+        if(isset($validated['avatar'])){
+            $avatarName = $user->email;
+            $avatarExt = $validated['avatar']->getClientOriginalExtension();
+            $avatar = $avatarName . '.' . $avatarExt;
+            $validated['avatar']->move(public_path('img/avatars/'), $avatar);
+            $user->avatar = 'img/avatars/' . $avatar;
+
+        }
+
+        if($request->birthday){
+            $user->birthday = $request->birthday;
+        }
+
+        if($request->about){
+            $user->about = $request->about;
+        }
+
+        $user->save();
+
+
+
+        return redirect()->back()->with("status", "USER CREATED");
+    }
 
     public function index()
     {

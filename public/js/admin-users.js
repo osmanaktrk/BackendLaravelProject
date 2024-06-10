@@ -1,4 +1,28 @@
 let editBtns = document.querySelectorAll(".users-edit-btn");
+let avatar = document.querySelector('.new-user-avatar');
+let input = document.querySelector('#new-user-avatar');
+let avatar_src = avatar.src;
+let createUserBtn = document.querySelector('.create-new-user-btn');
+let cancelUserBtn = document.querySelector('.new-user-cancel');
+let newUserBox = document.querySelector(".new-user");
+
+
+input.addEventListener('change', ()=>{
+    let file = input.files[0];
+
+    if(file){
+        let fileReader = new FileReader();
+
+        fileReader.onload = (e)=>{
+            avatar.src = e.target.result;
+        }
+
+        fileReader.readAsDataURL(file);
+
+    }else{
+        avatar.src = avatar_src;
+    }
+});
 
 
 
@@ -35,4 +59,13 @@ editBtns.forEach((btn)=>{
 
 
     })
+});
+
+
+createUserBtn.addEventListener('click', ()=>{
+    newUserBox.style.display = 'flex';
+});
+
+cancelUserBtn.addEventListener('click', ()=>{
+    newUserBox.style.display = 'none';
 });

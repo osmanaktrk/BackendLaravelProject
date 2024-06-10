@@ -3,6 +3,78 @@
     transform: scale(1.2);
 }
 
+.create-new-user{
+    padding: 40px;
+    margin: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.create-btn{
+    padding: 5px;
+}
+
+.new-user{
+    padding: 40px;
+    margin: 50px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+
+.new-user>form>*{
+    margin: 20px;
+    text-align: center;
+    
+}
+
+.new-user>form>div>input{
+    width: 60%;
+}
+
+.new-user>form>div>textarea{
+    width: 100%;
+    height: 200px;
+}
+
+.new-user-avatar-box{
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.new-user-avatar-box>img{
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: auto;
+    
+}
+
+#new-user-avatar{
+    margin: 20px 0;
+   
+    
+}
+
+.new-user-cancel{
+    color: white;
+    background-color: red;
+}
+
+
+
 .users-container{
     padding: 40px;
     margin: 20px;

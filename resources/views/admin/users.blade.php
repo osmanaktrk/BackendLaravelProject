@@ -10,7 +10,89 @@
 
 @section('content')
     <div class="users-main-container">
+        <div class="create-new-user">
+            <button class="create-new-user-btn">Create New User</button>
 
+            <div class="new-user">
+                <form action="{{route('admin-user-create')}}" method="post" enctype="multipart/form-data">
+                @csrf
+
+                <div>
+                    <div class="new-user-avatar-box">
+                        <img class="new-user-avatar" src="{{asset('img/avatars/default.svg')}}" alt="new-user-avatar">
+                    </div>
+                    @error('avatar')
+                        <span class="error">{{$message}}</span>
+                    @enderror
+                    <input type="file" name="avatar" id="new-user-avatar">
+
+                </div>
+                <div>
+                     <label for="new-user-name">USERNAME: </label>
+                    @error('username')
+                        <span class="error">{{$message}}</span>
+                    @enderror
+                    <input type="text" name="name" id="new-user-name" value="{{old('username')}}" required>
+                </div>
+                   
+                <div>
+                    <label for="new-user-email">E-MAIL: </label>
+                    @error('email')
+                        <span class="error">{{$message}}</span>
+                    @enderror
+                    <input type="email" name="email" id="new-user-email" value="{{old('email')}}" required>
+                </div>
+
+                <div>
+                    <label for="new-user-usertype">USERTYPE: </label>
+                    @error('usertype')
+                        <span class="error">{{$message}}</span>                        
+                    @enderror
+                    <select name="usertype" id="new-user-usertype" required>
+                        <option selected value="user">User</option>
+                        <option value="writer">Writer</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="new-user-password">PASSWORD: </label>
+                    @error('password')
+                        <span class="error">{{$message}}</span>
+                    @enderror
+                    <input type="text" name="password" id="new-user-password" value="{{old('password')}}" required>
+                </div>
+
+                <div>
+                    <label for="new-user-birthday">BIRTHDAY: </label>
+                    @error('birthday')
+                        <span class="error">{{$message}}</span>
+                    @enderror
+                    <input type="date" name="birthday" id="new-user-birthday" value="{{old('birthday')}}">
+
+                </div>
+
+                <div>
+                    <label for="new-user-abaut">ABOUT USER: </label>
+                    @error('about')
+                        <span class="error">{{$message}}</span>
+                    @enderror
+                    <textarea name="about" id="new-user-about">{{old('about')}}</textarea>
+                </div>
+
+                <div>
+                    <input type="submit" value="CREATE">
+                </div>
+
+                
+                
+                </form>
+
+                <button class="new-user-cancel">CANCEL</button>
+            </div>
+
+
+        </div>
         @foreach ($users as $user)
             <div class="users-container">
 
@@ -110,7 +192,7 @@
 
 
 
-                        <button class="users-edit-btn">User Edit</button>
+                        <button class="users-edit-btn">Edit User</button>
 
                         @if ($user->is_banned)
                             <form action="{{ route('admin-user-unblock') }}" method="post">

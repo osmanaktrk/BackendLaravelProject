@@ -132,7 +132,7 @@ Route::middleware(['auth', 'banned'])->group(function () {
 
         Route::post('/admin-user-update', [AdminUsersController::class, 'updateUser'])->name('admin-user-update');
 
-
+        Route::post('/admin-user-create', [AdminUsersController::class, 'createUser'])->name("admin-user-create");
 
 
 
