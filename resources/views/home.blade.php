@@ -125,6 +125,69 @@
 
     </div>
 
+    @guest
+    <div class="contact">
+        <h4>CONTACT</h4>
+        <form action="{{route('contact')}}" method="post">
+            @csrf
+            <label for="name">Name: </label>
+            @error('name')
+                <span class="error">{{$message}}</span>
+            @enderror
+            <input type="text" name="name" id="name" value="{{old('name')}}" required>
+           
+            <label for="">E-mail: </label>
+            @error('email')
+                <span class="error">{{$message}}</span>
+            @enderror
+            <input type="email" name="email" id="email" value="{{old('email')}}" required>
+            
+            <label for="message">Message: </label>
+            @error('message')
+                <span class="error">{{$message}}</span>
+            @enderror
+            <textarea name="message" id="message" required>{{old('message')}}</textarea>
+
+            <input type="submit" value="SUBMIT">
+        </form>
+    </div>
+    @endguest
+
+    @auth
+    <div class="contact">
+        <h4>CONTACT</h4>
+        <form action="{{route('contact')}}" method="post">
+            @csrf
+            @error('user_id')
+                <span class="error">{{$message}}</span>
+            @enderror
+            <input type="text" name="user_id" id="user_id" value="{{Auth::user()->id}}" style="display: none" readonly required>
+
+            <label for="name">Name: </label>
+            @error('name')
+                <span class="error">{{$message}}</span>
+            @enderror
+            <input type="text" name="name" id="name" value="{{Auth::user()->name}}" readonly required>
+           
+            <label for="">E-mail: </label>
+            @error('email')
+                <span class="error">{{$message}}</span>
+            @enderror
+            <input type="email" name="email" id="email" value="{{Auth::user()->email}}" readonly required>
+            
+            <label for="message">Message: </label>
+            @error('message')
+                <span class="error">{{$message}}</span>
+            @enderror
+            <textarea name="message" id="message" required>{{old('message')}}</textarea>
+
+            <input type="submit" value="SUBMIT">
+        </form>
+    </div>
+    @endauth
+    
+
+
 </main>
 @endsection
 

@@ -1,6 +1,4 @@
 let editBtns = document.querySelectorAll(".edit-btn");
-let cancelBtns = document.querySelectorAll(".cancel");
-
 
 
 editBtns.forEach((editBtn)=>{

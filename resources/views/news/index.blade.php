@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/news.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/news-index.css') }}">
 @endsection
 @section('title')
     <title>News</title>
@@ -152,5 +152,5 @@
 @endsection
 
 @section('js')
-    <script src="{{ asset('js/news.js') }}"></script>
+    <script src="{{ asset('js/news-index.js') }}"></script>
 @endsection

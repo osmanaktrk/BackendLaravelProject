@@ -56,4 +56,12 @@ class User extends Authenticatable
     public function comments(){
         return $this->hasMany('App\Models\Comment');
     }
+
+    public function contacts(){
+        return $this->hasMany('App\Models\Contact');
+    }
+
+    public function FaqRequests(){
+        return $this->hasMany('App\Models\QuestionRequest');
+    }
 }

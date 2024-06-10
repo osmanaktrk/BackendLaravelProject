@@ -43,14 +43,14 @@ class NewsController extends Controller
     {
         $news = News::latest()->get()[0];
 
-        return view('news', compact('news'));
+        return view('news.index', compact('news'));
     }
 
 
     public function showNewsById($newsId)
     {
         $news = News::findOrFail($newsId);
-        return view('news', compact('news'));
+        return view('news.index', compact('news'));
     }
 
     /**
@@ -60,7 +60,7 @@ class NewsController extends Controller
     {
         $news = News::latest()->get();
         $categories = Category::all();
-        return view('all-news', compact('news', 'categories'));
+        return view('news.all', compact('news', 'categories'));
     }
 
     /**
@@ -69,7 +69,7 @@ class NewsController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('write-news', compact('categories'));
+        return view('news.write', compact('categories'));
     }
 
     public function delete($id){
@@ -176,7 +176,7 @@ class NewsController extends Controller
         $news = News::findOrFail($id);
         $categories = Category::all();
 
-        return view('edit-news', compact('categories', 'news'));
+        return view('news.edit', compact('categories', 'news'));
     }
     /**
      * Display the specified resource.

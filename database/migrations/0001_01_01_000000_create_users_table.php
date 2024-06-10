@@ -21,7 +21,7 @@ return new class extends Migration
             $table->boolean('is_banned')->default(false);
             $table->string('avatar')->default('img/avatars/default.svg');
             $table->string('birthday')->nullable();
-            $table->text('about')->nullable();
+            $table->longText('about')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

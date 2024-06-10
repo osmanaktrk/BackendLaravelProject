@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuestionRequestController;
+
 
 
 
@@ -21,11 +25,12 @@ Route::get('/latest-news', [NewsController::class, 'lastNews'])->name('latest-ne
 Route::get('/news/{newsId}',[NewsController::class, 'showNewsById'] )->name('news');
 
 
-
+Route::post('/contact', [ContactController::class, 'store'])->name('contact');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 
 
@@ -55,7 +60,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('comment-delete{id}', [CommentController::class, 'delete'] )->name("comment-delete");
 
 
+    Route::get('/fag', [QuestionController::class, 'index'])->name('faq');
 
+    Route::post('/faq', [QuestionController::class, 'store'])->name('faq-create');
+
+    Route::delete('/faq/{id}', [QuestionController::class, 'delete'])->name('faq-delete');
+
+    Route::put('/faq/{id}', [QuestionController::class, 'update'])->name('faq-edit');
+    
+    Route::post('faq-request', [QuestionRequestController::class, 'store'])->name('faq-request');
+
+ 
 
 
 

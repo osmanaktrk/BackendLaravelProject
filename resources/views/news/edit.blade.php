@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/edit-news.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/news-edit.css') }}">
 @endsection
 
 @section('title')
@@ -79,5 +79,5 @@
     </main>
 @endsection
 @section('js')
-    <script src="{{ asset('js/edit-news.js') }}"></script>
+    <script src="{{ asset('js/news-edit.js') }}"></script>
 @endsection

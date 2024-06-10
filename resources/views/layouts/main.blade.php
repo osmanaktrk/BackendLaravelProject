@@ -25,7 +25,7 @@
             <a href="#">
                 <li>ABOUT</li>
             </a>
-            <a href="#">
+            <a href="{{route('faq')}}">
                 <li>FAQ</li>
             </a>
 
