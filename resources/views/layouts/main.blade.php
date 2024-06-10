@@ -22,7 +22,7 @@
             <a href="{{ route('all-news') }}">
                 <li>ALL NEWS</li>
             </a>
-            <a href="#">
+            <a href="{{route('about')}}">
                 <li>ABOUT</li>
             </a>
             <a href="{{route('faq')}}">

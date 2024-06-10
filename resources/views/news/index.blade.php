@@ -23,7 +23,13 @@
 
                 <div class="news-info">
                     <span class="news-category">{{ $news->category->category }}</span>
-                    <span class="news-writer">by {{ $news->user->name }} At
+                    <span class="news-writer">by 
+                        @if ($news->user->name != null)
+                            {{ $news->user->name }}
+                        @else
+                            Deleted User
+                        @endif
+                         At
                         {{ $news->created_at->format('d/M/Y H:i') }}</span>
                 </div>
                 <p class="news-content">{{ $news->content }}</p>
@@ -55,7 +61,13 @@
                 @foreach ($news->comments as $item)
                     <div class="comment-container">
                         <div class="comment-top">
-                            <span class="comment-writer">by {{ $item->user->name }} At
+                            <span class="comment-writer">by
+                                @if ($item->user->name != null)
+                                    {{ $item->user->name }}
+                                @else
+                                    Deleted User
+                                @endif
+                                 at
                                 {{ $item->created_at->format('d/M/Y H:i') }}</span>
                             @auth
                                 @if (Auth::user()->usertype == 'admin' || Auth::user()->id == $item->user->id)

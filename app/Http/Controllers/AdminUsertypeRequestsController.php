@@ -14,31 +14,48 @@ use App\Models\User;
 use App\Models\UsertypeRequest;
 use Illuminate\Support\Facades\Auth;
 
-
-
-class AdminController extends Controller
+class AdminUsertypeRequestsController extends Controller
 {
+    public function showAdminUsertypeRequests(){
+       
+
+
+        
+        return view('admin.usertype-requests');
+    }
+
+    public function accept(Request $request){
+        $validated = $request->validate([
+            "requestId" => 'required',
+        ]);
+
+        $requestId = $validated['requestId'];
+        $usertype = UsertypeRequest::findOrFail($requestId);
+        $userId = $usertype->user_id;
+        $user = User::findOrFail($userId);
+        $user->usertype->$usertype->request;
+        $user->save();
+
+
+
+        return redirect()->back()->with("status", "REQUEST ACCEPTED");
+    }
+
+    public function reject(Request $request){
+        $validated = $request->validate([
+            "requestId" => 'required',
+        ]);
+        $requestId = $validated['requestId'];
+        UsertypeRequest::findOrFail($requestId)->delete();
+
+        return redirect()->back()->with('status', "REQUEST REJECTED");
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        if(Auth::user()->usertype != 'admin'){
-            abort(403, "UNAUTHORIZED ENTRY");
-        }
-
-        $users = User::all();
-        $news = News::all();
-        $newsCategories = Category::all();
-        $contacts = Contact::all();
-        $faqQuestions = Question::all();
-        $faqCategories = FaqCategory::all();
-        $faqRequests = QuestionRequest::all();
-        $usertypeRequests = UsertypeRequest::all();
-        $comments = Comment::all();
-        
-
-        return view("admin.dashboard", compact(['users', 'news', 'newsCategories', 'contacts', 'faqQuestions', 'faqCategories', 'faqRequests', 'usertypeRequests', 'comments']));
+        //
     }
 
     /**

@@ -33,11 +33,7 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        if(Auth::user()->usertype != "admin"){
-            abort(403, "UNAUTHORIZED ENTRY");
-        }
-
-
+        
 
         $validated = $request->validate([
             'faq_category_id' => 'required',
@@ -57,9 +53,6 @@ class QuestionController extends Controller
     }
 
     public function delete($id, Request $request){
-        if(Auth::user()->usertype != "admin"){
-            abort(403, "UNAUTHORIZED ENTRY");
-        }
 
         Question::findOrFail($id)->deleteOrFail();
 
@@ -88,9 +81,6 @@ class QuestionController extends Controller
     public function update($id, Request $request)
     {
 
-        if(Auth::user()->usertype != "admin"){
-            abort(403, "UNAUTHORIZED ENTRY");
-        }
         
         $question = Question::findOrFail($id);
 

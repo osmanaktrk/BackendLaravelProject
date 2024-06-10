@@ -12,6 +12,7 @@ input.addEventListener("change", ()=>{
     if(file){
         const fileReader = new FileReader();
         
+        
         fileReader.onload = (e)=>{
             img.src = e.target.result;
         };

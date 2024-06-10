@@ -74,11 +74,7 @@ class NewsController extends Controller
 
     public function delete($id){
 
-        if(Auth::user()->usertype != "admin"){
-            abort(403, "UNAUTHORIZED ENTRY");
-        }
-
-
+    
         News::findOrFail($id)->deleteOrFail();
 
         Comment::where('news_id', $id)->delete();
@@ -95,10 +91,6 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-
-        if(Auth::user()->usertype == "user"){
-            abort(403, "UNAUTHORIZED ENTRY");
-        }
 
         $validated = $request->validate([
             'title' => ['required', 'min:5'],
@@ -133,9 +125,7 @@ class NewsController extends Controller
 
     public function storeEdit($id, Request $request)
     {
-        if(Auth::user()->usertype == "user"){
-            abort(403, "UNAUTHORIZED ENTRY");
-        }
+       
 
         $news = News::findOrFail($id);
 
@@ -169,9 +159,7 @@ class NewsController extends Controller
 
     public function showEdit($id)
     {
-        if(Auth::user()->usertype == "user"){
-            abort(403, "UNAUTHORIZED ENTRY");
-        }
+        
 
         $news = News::findOrFail($id);
         $categories = Category::all();

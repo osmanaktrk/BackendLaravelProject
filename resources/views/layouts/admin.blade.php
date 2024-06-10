@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     @yield('css')
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    
     @yield('title')
 </head>
 
@@ -15,7 +16,7 @@
     <nav class="nav-top">
 
         @if (session('status'))
-            <h1 class="status">{{ session('status') }}</h1>
+            <span class="status">{{ session('status') }}</span>
         @endif
         <ul class="nav-ul">
 
@@ -29,7 +30,7 @@
             <a href="{{ route('all-news') }}">
                 <li>ALL NEWS</li>
             </a>
-            <a href="#">
+            <a href="{{route('about')}}">
                 <li>ABOUT</li>
             </a>
             <a href="{{ route('faq') }}">
@@ -53,22 +54,40 @@
 
 
     <nav class="nav-left">
-        <div class="nav-left-top">
+        <a href="{{route('admin-dashboard')}}" class="nav-left-top">
             ADMIN PANEL
-        </div>
+        </a>
         <div class="nav-left-links">
             <ul>
-                
-                <a href=""><li>USERS</li></a>
-                <a href=""><li>NEWS</li></a>
-                <a href=""><li>NEWS-CATEGORIES</li></a>
-                <a href=""><li>CONTACT MESSAGES</li></a>
-                <a href=""><li>FAQ</li></a>
-                <a href=""><li>FAQ-CATEGORIES</li></a>
-                <a href=""><li>FAQ-REQUESTS</li></a>
-                <a href=""><li>USERTYPE-REQUESTS</li></a>
-                <a href=""><li>COMMENTS</li></a>
-               
+
+                <a href="{{ route('admin-users') }}">
+                    <li class="a-admin-users" >USERS</li>
+                </a>
+                <a href="{{ route('admin-news') }}">
+                    <li class="a-admin-news">NEWS</li>
+                </a>
+                <a href="{{ route('admin-news-categories') }}">
+                    <li class="a-admin-news-categories">NEWS-CATEGORIES</li>
+                </a>
+                <a href="{{ route('admin-contacts-messages') }}">
+                    <li class="a-admin-contacts-messages">CONTACT MESSAGES</li>
+                </a>
+                <a href="{{ route('admin-faq-questions') }}">
+                    <li class="a-admin-faq-questions">FAQ</li>
+                </a>
+                <a href="{{ route('admin-faq-categories') }}">
+                    <li class="a-admin-faq-categories">FAQ-CATEGORIES</li>
+                </a>
+                <a href="{{ route('admin-faq-requests') }}">
+                    <li class="a-admin-faq-requests">FAQ-REQUESTS</li>
+                </a>
+                <a href="{{ route('admin-userstype-requests') }}">
+                    <li class="a-admin-userstype-requests">USERTYPE-REQUESTS</li>
+                </a>
+                <a href="{{ route('admin-comments') }}">
+                    <li class="a-admin-comments">COMMENTS</li>
+                </a>
+
             </ul>
 
         </div>
@@ -98,7 +117,7 @@
 
 
     @yield('js')
-    
+
 </body>
 
 </html>

@@ -22,16 +22,11 @@
                 <div class="categories">
                     <h3>Categories</h3>
 
-
                     
                         <label for="all-categories">All Category: <span class="category-num">{{$news->count()}}</span><br>
                             <input type="checkbox" name="all-categories" id="all-categories" checked>
                         </label>
-                        
 
-                   
-                    
-                    
 
                     @foreach ($categories as $category)
                        
@@ -43,10 +38,6 @@
                         
                     @endforeach
 
-
-
-
-
                 </div>
                 <div class="all-news-container">
 
@@ -57,7 +48,13 @@
                                     <img src="{{ asset($item->cover) }}" alt="demo">
                                 </div>
                                 <span class="all-news-category">{{ $item->category->category }}</span>
-                                <span class="all-news-writer">by {{ $item->user->name }} at
+                                <span class="all-news-writer">by 
+                                    @if ($item->user->name != null)
+                                        {{ $item->user->name }}
+                                    @else
+                                        Deleted User
+                                    @endif
+                                     at
                                     {{ $item->created_at->format('d/M/Y  H:i') }}</span>
                             </div>
                             <a href="{{route('news', $item->id)}}" class="all-news-title">{{$item->title}}</a>

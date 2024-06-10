@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('cover')->nullable();
             $table->longText('content');
             $table->integer('user_id');
-            $table->integer('category_id')->nullable();
+            $table->integer('category_id')->default(1);
             $table->timestamps();
         });
     }
