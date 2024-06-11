@@ -20,9 +20,10 @@ class AdminNewsController extends Controller
     public function showAdminNews(){
         
         $news = News::all();
+        $categories = Category::all();
 
         
-        return view('admin.news');
+        return view('admin.news', compact('news', 'categories'));
     }
     /**
      * Display a listing of the resource.

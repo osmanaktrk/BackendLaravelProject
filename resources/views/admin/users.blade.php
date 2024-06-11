@@ -11,81 +11,101 @@
 @section('content')
     <div class="users-main-container">
         <div class="create-new-user">
-            <button class="create-new-user-btn">Create New User</button>
+            <div class="main-buttons">
+                <button class="create-new-user-btn">Create New User</button>
+                <div class="usertypes">
+                    <span>USERTYPE</span>
+                    <div>
+                        <label for="usertype-user">User</label>
+                        <input type="checkbox" name="usertype-user" id="usertype-user" checked>
+
+                        <label for="usertype-writer">Writer</label>
+                        <input type="checkbox" name="usertype-writer" id="usertype-writer" checked>
+
+                        <label for="usertype-admin">Admin</label>
+                        <input type="checkbox" name="usertype-admin" id="usertype-admin" checked>
+                    </div>
+
+                </div>
+
+            </div>
+
+
 
             <div class="new-user">
-                <form action="{{route('admin-user-create')}}" method="post" enctype="multipart/form-data">
-                @csrf
+                <form action="{{ route('admin-user-create') }}" method="post" enctype="multipart/form-data">
+                    @csrf
 
-                <div>
-                    <div class="new-user-avatar-box">
-                        <img class="new-user-avatar" src="{{asset('img/avatars/default.svg')}}" alt="new-user-avatar">
+                    <div>
+                        <div class="new-user-avatar-box">
+                            <img class="new-user-avatar" src="{{ asset('img/avatars/default.svg') }}" alt="new-user-avatar">
+                        </div>
+                        @error('avatar')
+                            <span class="error">{{ $message }}</span>
+                        @enderror
+                        <input type="file" name="avatar" id="new-user-avatar">
+
                     </div>
-                    @error('avatar')
-                        <span class="error">{{$message}}</span>
-                    @enderror
-                    <input type="file" name="avatar" id="new-user-avatar">
+                    <div>
+                        <label for="new-user-name">USERNAME: </label>
+                        @error('username')
+                            <span class="error">{{ $message }}</span>
+                        @enderror
+                        <input type="text" name="name" id="new-user-name" value="{{ old('username') }}" required>
+                    </div>
 
-                </div>
-                <div>
-                     <label for="new-user-name">USERNAME: </label>
-                    @error('username')
-                        <span class="error">{{$message}}</span>
-                    @enderror
-                    <input type="text" name="name" id="new-user-name" value="{{old('username')}}" required>
-                </div>
-                   
-                <div>
-                    <label for="new-user-email">E-MAIL: </label>
-                    @error('email')
-                        <span class="error">{{$message}}</span>
-                    @enderror
-                    <input type="email" name="email" id="new-user-email" value="{{old('email')}}" required>
-                </div>
+                    <div>
+                        <label for="new-user-email">E-MAIL: </label>
+                        @error('email')
+                            <span class="error">{{ $message }}</span>
+                        @enderror
+                        <input type="email" name="email" id="new-user-email" value="{{ old('email') }}" required>
+                    </div>
 
-                <div>
-                    <label for="new-user-usertype">USERTYPE: </label>
-                    @error('usertype')
-                        <span class="error">{{$message}}</span>                        
-                    @enderror
-                    <select name="usertype" id="new-user-usertype" required>
-                        <option selected value="user">User</option>
-                        <option value="writer">Writer</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div>
+                    <div>
+                        <label for="new-user-usertype">USERTYPE: </label>
+                        @error('usertype')
+                            <span class="error">{{ $message }}</span>
+                        @enderror
+                        <select name="usertype" id="new-user-usertype" required>
+                            <option selected value="user">User</option>
+                            <option value="writer">Writer</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
 
-                <div>
-                    <label for="new-user-password">PASSWORD: </label>
-                    @error('password')
-                        <span class="error">{{$message}}</span>
-                    @enderror
-                    <input type="text" name="password" id="new-user-password" value="{{old('password')}}" required>
-                </div>
+                    <div>
+                        <label for="new-user-password">PASSWORD: </label>
+                        @error('password')
+                            <span class="error">{{ $message }}</span>
+                        @enderror
+                        <input type="text" name="password" id="new-user-password" value="{{ old('password') }}"
+                            required>
+                    </div>
 
-                <div>
-                    <label for="new-user-birthday">BIRTHDAY: </label>
-                    @error('birthday')
-                        <span class="error">{{$message}}</span>
-                    @enderror
-                    <input type="date" name="birthday" id="new-user-birthday" value="{{old('birthday')}}">
+                    <div>
+                        <label for="new-user-birthday">BIRTHDAY: </label>
+                        @error('birthday')
+                            <span class="error">{{ $message }}</span>
+                        @enderror
+                        <input type="date" name="birthday" id="new-user-birthday" value="{{ old('birthday') }}">
 
-                </div>
+                    </div>
 
-                <div>
-                    <label for="new-user-abaut">ABOUT USER: </label>
-                    @error('about')
-                        <span class="error">{{$message}}</span>
-                    @enderror
-                    <textarea name="about" id="new-user-about">{{old('about')}}</textarea>
-                </div>
+                    <div>
+                        <label for="new-user-abaut">ABOUT USER: </label>
+                        @error('about')
+                            <span class="error">{{ $message }}</span>
+                        @enderror
+                        <textarea name="about" id="new-user-about">{{ old('about') }}</textarea>
+                    </div>
 
-                <div>
-                    <input type="submit" value="CREATE">
-                </div>
+                    <div>
+                        <input type="submit" value="CREATE">
+                    </div>
 
-                
-                
+
+
                 </form>
 
                 <button class="new-user-cancel">CANCEL</button>
@@ -94,7 +114,7 @@
 
         </div>
         @foreach ($users as $user)
-            <div class="users-container">
+            <div class="users-container" usertype="{{ $user->usertype }}">
 
                 <div class="user-container-box">
                     <div class="users-container-top">
@@ -130,46 +150,53 @@
                     </div>
 
                     <div class="users-container-bottom">
-                        <button>News: {{ $user->news->count() }}</button>
-                        <button>Comments: {{ $user->comments->count() }}</button>
+                        <a href="{{ route('admin-news') }}"><button>News: {{ $user->news->count() }}</button></a>
+                        <a href="{{ route('admin-comments') }}"><button>Comments:
+                                {{ $user->comments->count() }}</button></a>
 
-                        @if ($user->UsertypeRequest->count() > 0)
+
+                        @foreach ($user->UsertypeRequest as $item)
                             <div class="usertype-request">
 
 
 
-                                @foreach ($user->UsertypeRequest as $item)
-                                    <button>Usertype Request: {{ $item->request }}</button>
-                                    <div>
-                                        <form action="{{ route('admin-usertype-accept') }}" method="post">
-                                            @csrf
-                                            @method('put')
-                                            @error('requestId')
-                                                <span class="error">{{ $message }}</span>
-                                            @enderror
-                                            <input type="number" name="requestId" id="requestId"
-                                                value="{{ $item->id }}" required readonly hidden>
-                                            <input type="submit" value="ACCEPT">
-                                        </form>
 
-                                        <form action="{{ route('admin-usertype-reject') }}" method="post">
-                                            @csrf
-                                            @method('delete')
-                                            @error('requestId')
-                                                <span class="error">{{ $message }}</span>
-                                            @enderror
-                                            <input type="number" name="requestId" id="requestId"
-                                                value="{{ $item->id }}" readonly required hidden>
-                                            <input class="user-block-btn" type="submit" value="REJECT"
-                                                onclick="return confirm('ARE YOUE SURE')">
-                                        </form>
-                                    </div>
-                                @endforeach
+
+                                <button>Usertype Request: {{ $item->request }}</button>
+
+
+
+                                <div>
+                                    <form action="{{ route('admin-usertype-accept') }}" method="post">
+                                        @csrf
+                                        @method('put')
+                                        @error('requestId')
+                                            <span class="error">{{ $message }}</span>
+                                        @enderror
+                                        <input type="number" name="requestId" id="requestId" value="{{ $item->id }}"
+                                            required readonly hidden>
+                                        <input type="submit" value="ACCEPT">
+                                    </form>
+
+                                    <form action="{{ route('admin-usertype-reject') }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        @error('requestId')
+                                            <span class="error">{{ $message }}</span>
+                                        @enderror
+                                        <input type="number" name="requestId" id="requestId" value="{{ $item->id }}"
+                                            readonly required hidden>
+                                        <input class="user-block-btn" type="submit" value="REJECT"
+                                            onclick="return confirm('ARE YOUE SURE')">
+                                    </form>
+                                </div>
+
+
 
 
 
                             </div>
-                        @endif
+                        @endforeach
 
                         <div class="user-password-reset">
                             <form action="{{ route('admin-userpassword-reset') }}" method="post">
@@ -177,7 +204,7 @@
                                 @method('put')
 
                                 @error('password')
-                                    <span class="">{{ $message }}</span>
+                                    <span class="error">{{ $message }}</span>
                                 @enderror
                                 <input style="display: none" type="number" name="userId" value="{{ $user->id }}"
                                     hidden readonly required>
@@ -198,16 +225,18 @@
                             <form action="{{ route('admin-user-unblock') }}" method="post">
                                 @csrf
                                 @method('put')
-                                <input type="number" name="userId" value="{{ $user->id }}" required readonly hidden>
-                                <input class="user-block-btn" type="submit" value="UNBLOCK"
+                                <input type="number" name="userId" value="{{ $user->id }}" required readonly
+                                    hidden>
+                                <input class="user-block-btn" type="submit" value="Unblock User"
                                     onclick="return confirm('ARE YOUE SURE')">
                             </form>
                         @else
                             <form action="{{ route('admin-user-block') }}" method="post">
                                 @csrf
                                 @method('put')
-                                <input type="number" name="userId" value="{{ $user->id }}" readonly required hidden>
-                                <input class="user-block-btn" type="submit" value="BLOCK"
+                                <input type="number" name="userId" value="{{ $user->id }}" readonly required
+                                    hidden>
+                                <input class="user-block-btn" type="submit" value="Block User"
                                     onclick="return confirm('ARE YOUE SURE')">
                             </form>
                         @endif
@@ -216,7 +245,7 @@
                         <form action="{{ route('admin-user-delete', $user->id) }}" method="post">
                             @csrf
                             @method('delete')
-                            <input class="user-delete-btn" type="submit" value="DELETE"
+                            <input class="user-delete-btn" type="submit" value="Delete User"
                                 onclick="return confirm('ARE YOUE SURE')">
                         </form>
 
@@ -269,7 +298,8 @@
                             </div>
 
                             <div>
-                                <input type="number" name="userId" value="{{ $user->id }}" readonly required hidden>
+                                <input type="number" name="userId" value="{{ $user->id }}" readonly required
+                                    hidden>
                                 <input type="submit" value="UPDATE">
                             </div>
 

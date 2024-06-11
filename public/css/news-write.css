@@ -21,8 +21,10 @@
 }
 
 #title{
-    width: 100%;
+    width: 96%;
     height: 50px;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 
@@ -32,8 +34,10 @@
 }
 
 .content>textarea{
-    width: 100%;
+    width: 96%;
     height: 300px;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .cover-img{

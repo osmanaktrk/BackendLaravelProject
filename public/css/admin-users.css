@@ -13,6 +13,26 @@
     justify-content: center;
 }
 
+.main-buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.main-buttons>*{
+    margin: 10px;
+}
+
+.usertypes{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.usertypes>*{
+    margin: 5px;
+}
+
 .create-btn{
     padding: 5px;
 }
