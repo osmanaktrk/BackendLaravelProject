@@ -13,6 +13,10 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+.create-new-user-btn{
+    border: 3px solid;
+    border-radius: 10px;
+}
 
 .main-buttons{
     display: flex;

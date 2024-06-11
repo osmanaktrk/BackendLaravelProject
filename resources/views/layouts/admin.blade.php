@@ -69,6 +69,9 @@
                 <a href="{{ route('admin-news-categories') }}">
                     <li class="a-admin-news-categories">NEWS-CATEGORIES</li>
                 </a>
+                <a href="{{ route('admin-comments') }}">
+                    <li class="a-admin-comments">NEWS-COMMENTS</li>
+                </a>
                 <a href="{{ route('admin-contacts-messages') }}">
                     <li class="a-admin-contacts-messages">CONTACT MESSAGES</li>
                 </a>
@@ -84,9 +87,7 @@
                 <a href="{{ route('admin-userstype-requests') }}">
                     <li class="a-admin-userstype-requests">USERTYPE-REQUESTS</li>
                 </a>
-                <a href="{{ route('admin-comments') }}">
-                    <li class="a-admin-comments">COMMENTS</li>
-                </a>
+                
 
             </ul>
 

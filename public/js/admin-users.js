@@ -142,8 +142,7 @@ userSearch.addEventListener("input", () => {
             users.forEach((user) => {
                 user.style.display = "none";
                 if (
-                    user.getAttribute("username").toString().toLowerCase() ==
-                    userSearch.value.toString().toLowerCase()
+                    user.getAttribute("username").toString().toLowerCase().includes(userSearch.value.toString().toLowerCase())             
                 ) {
                     user.style.display = "flex";
                 } else if (userSearch.value == "") {
@@ -165,8 +164,7 @@ emailSearch.addEventListener("input", () => {
             users.forEach((user) => {
                 user.style.display = "none";
                 if (
-                    user.getAttribute("username").toString().toLowerCase() ==
-                    emailSearch.value.toString().toLowerCase()
+                    user.getAttribute("username").toString().toLowerCase().includes(emailSearch.value.toString().toLowerCase())
                 ) {
                     user.style.display = "flex";
                 } else if (emailSearch.value == "") {

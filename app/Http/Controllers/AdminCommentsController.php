@@ -24,7 +24,7 @@ class AdminCommentsController extends Controller
 
 
 
-        return view('admin.comments');
+        return view('admin.comments', compact('comments'));
     }
 
     /**
