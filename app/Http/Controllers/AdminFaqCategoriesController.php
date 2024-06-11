@@ -20,15 +20,54 @@ class AdminFaqCategoriesController extends Controller
     public function showAdminFaqCategories(){
         
 
-        $faqCategories = FaqCategory::all();
+        $categories = FaqCategory::all();
 
 
         
-        return view('admin.faq-categories');
+        return view('admin.faq-categories', compact('categories'));
     }
 
 
 
+    public function createCategory(Request $request){
+
+        $request->validate([
+            'category' => ['required', 'unique:App\Models\FaqCategory,category'],
+        ]);
+
+        $category = new FaqCategory();
+        $category->category = $request->category;
+        $category->save();
+
+        return redirect()->back()->with("status", "FAQ-CATEGORY CREATED");
+    }
+
+    public function deleteCategory(Request $request){
+
+        $request->validate([
+            'categoryId' => 'required',
+        ]);
+
+        FaqCategory::findOrFail($request->categoryId)->delete();
+
+
+        return redirect()->back()->with('status', 'FAQ-CATEGORY DELETED');
+    }
+
+    public function editCategory(Request $request){
+
+            $validated = $request->validate([
+                'categoryId' => 'required',
+                'category' => ['required', 'unique:App\Models\FaqCategory,category'],
+            ]);
+
+            $category = FaqCategory::findOrFail($validated['categoryId']);
+            $category->category = $validated['category'];
+            $category->save();
+            
+
+        return redirect()->back()->with('status', 'FAQ-CATEGORY UPDATED');
+    }
     /**
      * Display a listing of the resource.
      */

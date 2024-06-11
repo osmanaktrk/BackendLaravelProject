@@ -138,6 +138,12 @@ Route::middleware(['auth', 'banned'])->group(function () {
 
         Route::delete('/admin-contact-delete', [AdminContactMessagesController::class, 'deleteContact'])->name('admin-contact-delete');
 
+        Route::post('/admin-faq-categories-create', [AdminFaqCategoriesController::class, 'createCategory'])->name('admin-faq-categories-create');
+
+        Route::delete('/admin-faq-categories-delete', [AdminFaqCategoriesController::class, 'deleteCategory'])->name('admin-faq-categories-delete');
+
+        Route::put('/admin-faq-categories-edit', [AdminFaqCategoriesController::class, 'editCategory'])->name('admin-faq-categories-edit');
+
     });
 
     

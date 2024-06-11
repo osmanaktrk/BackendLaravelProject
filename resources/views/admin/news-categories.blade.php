@@ -15,6 +15,9 @@
             <form action="{{ route('admin-news-categories-create') }}" method="post">
                 @csrf
                 <label for="category-name">New Category: </label>
+                @error('category')
+                    <span class="error">{{$message}}</span>
+                @enderror
                 <input type="text" name="category" id="category-name" required>
 
                 <input type="submit" value="CREATE">
