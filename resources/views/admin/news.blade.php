@@ -24,10 +24,12 @@
                 </select>
             </div>
 
+        
+
         </div>
 
         @foreach ($news as $item)
-            <div class="news-all" category="{{$item->category->id}}">
+            <div class="news-all" category="{{$item->category->id}}" writer="{{$item->user_id}}">
 
                 <div class="news-title">
                     <span>Title</span>

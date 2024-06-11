@@ -21,6 +21,8 @@ class AdminNewsController extends Controller
         
         $news = News::all();
         $categories = Category::all();
+        
+
 
         
         return view('admin.news', compact('news', 'categories'));

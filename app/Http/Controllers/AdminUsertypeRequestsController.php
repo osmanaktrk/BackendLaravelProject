@@ -18,10 +18,10 @@ class AdminUsertypeRequestsController extends Controller
 {
     public function showAdminUsertypeRequests(){
        
-
+        $usertyperequests = UsertypeRequest::all();
 
         
-        return view('admin.usertype-requests');
+        return view('admin.usertype-requests', compact('usertyperequests'));
     }
 
     public function accept(Request $request){
@@ -40,6 +40,8 @@ class AdminUsertypeRequestsController extends Controller
 
         return redirect()->back()->with("status", "REQUEST ACCEPTED");
     }
+
+    
 
     public function reject(Request $request){
         $validated = $request->validate([

@@ -160,6 +160,24 @@ class AdminUsersController extends Controller
         return redirect()->back()->with("status", "USER CREATED");
     }
 
+    public function changeUsertype(Request $request){
+
+        $validated = $request->validate([
+            'userId' => 'required',
+            'usertypeChange' => 'required',
+        ]);
+
+        $userId = $validated['userId'];
+        $usertype = $validated['usertypeChange'];
+        $user = User::findOrFail($userId);
+        $user->usertype = $usertype;
+        $user->save();
+
+
+        return redirect()->back()->with('status', 'USERTYPE CHANGED');
+    }
+
+
     public function index()
     {
         //

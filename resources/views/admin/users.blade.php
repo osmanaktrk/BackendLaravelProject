@@ -11,22 +11,56 @@
 @section('content')
     <div class="users-main-container">
         <div class="create-new-user">
+
             <div class="main-buttons">
                 <button class="create-new-user-btn">Create New User</button>
                 <div class="usertypes">
                     <span>USERTYPE</span>
                     <div>
-                        <label for="usertype-user">User</label>
-                        <input type="checkbox" name="usertype-user" id="usertype-user" checked>
+                        <div>
+                            <label for="usertype-user">User</label><br>
+                            <input type="checkbox" name="usertype-user" id="usertype-user" checked>
+                        </div>
 
-                        <label for="usertype-writer">Writer</label>
-                        <input type="checkbox" name="usertype-writer" id="usertype-writer" checked>
+                        <div>
+                            <label for="usertype-writer">Writer</label><br>
+                            <input type="checkbox" name="usertype-writer" id="usertype-writer" checked>
+                        </div>
 
-                        <label for="usertype-admin">Admin</label>
-                        <input type="checkbox" name="usertype-admin" id="usertype-admin" checked>
+
+                        <div>
+                            <label for="usertype-admin">Admin</label><br>
+                            <input type="checkbox" name="usertype-admin" id="usertype-admin" checked>
+                        </div>
+
+                        <div>
+                            <label for="block">Blocked Users</label><br>
+                        <input type="checkbox" name="blocked" id="blocked" checked>
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+
+                <div class="user-search">
+                    <span>USER SEARCH</span>
+                    <div>
+                        <input type="search" name="search" id="search" placeholder="USERNAME">
+                        <label for="search"><button>Search</button></label>
                     </div>
 
                 </div>
+
+                <div class="user-email-search">
+                    <span>USER E-MAIL SEARCH</span>
+                    <div>
+                        <input type="search" name="email-search" id="email-search" placeholder="USER E-MAIL">
+                        <label for="email-search"><button>Search</button></label>
+                    </div>
+
+                </div>
+
 
             </div>
 
@@ -114,7 +148,8 @@
 
         </div>
         @foreach ($users as $user)
-            <div class="users-container" usertype="{{ $user->usertype }}">
+            <div class="users-container" usertype="{{$user->usertype}}" username="{{$user->name}}" ban="{{$user->is_banned}}"
+                useremail="{{ $user->email }}">
 
                 <div class="user-container-box">
                     <div class="users-container-top">
@@ -184,8 +219,8 @@
                                         @error('requestId')
                                             <span class="error">{{ $message }}</span>
                                         @enderror
-                                        <input type="number" name="requestId" id="requestId" value="{{ $item->id }}"
-                                            readonly required hidden>
+                                        <input type="number" name="requestId" id="requestId"
+                                            value="{{ $item->id }}" readonly required hidden>
                                         <input class="user-block-btn" type="submit" value="REJECT"
                                             onclick="return confirm('ARE YOUE SURE')">
                                     </form>
@@ -210,6 +245,27 @@
                                     hidden readonly required>
                                 <input type="text" name="password" required>
                                 <input type="submit" value="RESET PASSWORD">
+                            </form>
+
+                        </div>
+
+                        <div class="user-usertype-change">
+                            <form action="{{ route('admin-usertype-change') }}" method="post">
+                                @csrf
+                                @method('put')
+
+                                @error('usertypeChange')
+                                    <span class="error">{{ $message }}</span>
+                                @enderror
+                                <input style="display: none" type="number" name="userId" value="{{ $user->id }}"
+                                    hidden readonly required>
+                                <select name="usertypeChange" id="usertypeChange" required>
+                                    <option value="" selected disabled hidden>SELECT USERTYPE</option>
+                                    <option value="user">User</option>
+                                    <option value="writer">Writer</option>
+                                    <option value="admin">Admin</option>
+                                </select>
+                                <input type="submit" value="CHANGE USERTYPE">
                             </form>
 
                         </div>
