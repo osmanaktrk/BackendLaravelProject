@@ -21,8 +21,21 @@ class AdminContactMessagesController extends Controller
         $contacts = Contact::all();
 
         
-        return view('admin.contact-messages');
+        return view('admin.contact-messages', compact('contacts'));
     }
+
+
+    public function deleteContact(Request $request){
+        $request->validate([
+            'contactId' => 'required',
+        ]);
+
+        Contact::findOrFail($request->contactId)->delete();
+
+
+        return redirect()->back()->with('status', 'CONTACT DELETED');
+    }
+    
     /**
      * Display a listing of the resource.
      */

@@ -136,7 +136,7 @@ Route::middleware(['auth', 'banned'])->group(function () {
 
         Route::put('/admin-usertype-change', [AdminUsersController::class, 'changeUsertype'])->name('admin-usertype-change');
 
-
+        Route::delete('/admin-contact-delete', [AdminContactMessagesController::class, 'deleteContact'])->name('admin-contact-delete');
 
     });
 
