@@ -22,12 +22,12 @@
                     @csrf
                     @method('delete')
                     <input type="number" name="contactId" id="contactId" value="{{$contact->id}}" required readonly hidden>
-                    <input class="delete" type="submit" value="DELETE CONTACT">
+                    <input class="delete" type="submit" value="DELETE MESSAGE">
                 </form>
            </div>
 
             <div>
-                <span>SERDER NAME</span>
+                <span>SENDER NAME</span>
                 <br>
                 <span>{{$contact->name}}</span>
             </div>

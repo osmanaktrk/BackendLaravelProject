@@ -35,6 +35,7 @@ class AdminUsertypeRequestsController extends Controller
         $user = User::findOrFail($userId);
         $user->usertype->$usertype->request;
         $user->save();
+        $usertype->delete();
 
 
 

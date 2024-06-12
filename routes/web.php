@@ -144,6 +144,10 @@ Route::middleware(['auth', 'banned'])->group(function () {
 
         Route::put('/admin-faq-categories-edit', [AdminFaqCategoriesController::class, 'editCategory'])->name('admin-faq-categories-edit');
 
+        Route::delete("/admin-faq-request-delete", [AdminFaqRequestsController::class, 'deleteRequest'])->name('admin-faq-request-delete');
+
+        Route::post("/admin-faq-request-accept", [AdminFaqRequestsController::class, 'acceptRequest'])->name("admin-faq-request-accept");
+
     });
 
     

@@ -21,10 +21,12 @@ class AdminCommentsController extends Controller
         
         $comments = Comment::all();
 
+        $userIds = Comment::orderBy('user_id')->get()->groupBy('user_id')->keys();
+
+        $users = User::all();
 
 
-
-        return view('admin.comments', compact('comments'));
+        return view('admin.comments', compact('comments', 'userId', 'users'));
     }
 
     /**

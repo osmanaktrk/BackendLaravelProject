@@ -20,12 +20,52 @@ class AdminFaqRequestsController extends Controller
     public function showAdminFaqRequests(){
       
 
-        $faqRequests = QuestionRequest::all();
+        $requests = QuestionRequest::all();
+        $categories = FaqCategory::all();
+
+        $users = User::all();
+
+        $userIds = QuestionRequest::orderBy('user_id')->get()->groupBy('user_id')->keys();
 
 
         
-        return view('admin.faq-requests');
+        return view('admin.faq-requests', compact('requests', 'categories', 'users', 'userIds'));
     }
+
+    public function deleteRequest(Request $request){
+
+        $request->validate([
+            'requestId' => 'required',
+        ]);
+
+        QuestionRequest::findOrFail($request->requestId)->delete();
+
+        return redirect()->back()->with("status", 'REQUEST DELETED');
+    }
+
+    public function acceptRequest(Request $request){
+
+        $validated = $request->validate([
+            'faq_category_id' => 'required',
+            'requestId' => 'required',
+            'question' => ['required', 'min:5'],
+            'answer' => ['required', 'min:5'],
+        ]);
+
+        $faq = new Question();
+
+        $faq->question = $validated['question'];
+        $faq->answer = $validated['answer'];
+        $faq->faq_category_id = $validated['faq_category_id'];
+        $faq->save();
+
+        QuestionRequest::findOrFail($request->requestId)->delete();
+
+
+
+        return redirect()->back()->with("status", "REQUEST ACCEPTED");
+    }
+
     /**
      * Display a listing of the resource.
      */

@@ -73,7 +73,7 @@
                     <li class="a-admin-comments">NEWS-COMMENTS</li>
                 </a>
                 <a href="{{ route('admin-contacts-messages') }}">
-                    <li class="a-admin-contacts-messages">CONTACT MESSAGES</li>
+                    <li class="a-admin-contacts-messages">CONTACT-MESSAGES</li>
                 </a>
                 <a href="{{ route('admin-faq-questions') }}">
                     <li class="a-admin-faq-questions">FAQ</li>
