@@ -49,10 +49,10 @@
                                 </div>
                                 <span class="all-news-category">{{ $item->category->category }}</span>
                                 <span class="all-news-writer">by 
-                                    @if ($item->user->name != null)
+                                    @if (isset($item->user->name))
                                         {{ $item->user->name }}
                                     @else
-                                        Deleted User
+                                        <span class="error">Deleted User</span>
                                     @endif
                                      at
                                     {{ $item->created_at->format('d/M/Y  H:i') }}</span>

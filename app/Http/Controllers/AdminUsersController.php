@@ -14,6 +14,7 @@ use App\Models\User;
 use App\Models\UsertypeRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\File;
 
 class AdminUsersController extends Controller
 {
@@ -29,7 +30,10 @@ class AdminUsersController extends Controller
 
     public function deleteUser($id)
     {
-        User::findOrFail($id)->delete();
+        $user = User::findOrFail($id);
+        File::delete($user->avatar);
+        $user->delete();
+        
 
 
         return redirect()->back()->with("status", "USER DELETED");
@@ -96,6 +100,7 @@ class AdminUsersController extends Controller
 
         
         if (isset($validated['avatar'])) {
+            File::delete($user->avatar);
             $avatarName = $user->email;
             $avatarExt = $validated['avatar']->getClientOriginalExtension();
             $avatar = $avatarName . '.' . $avatarExt;

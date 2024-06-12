@@ -13,8 +13,26 @@
 
         <div class="request-container-box">
             <h4>FAQ REQUESTS</h4>
+
+            <div class="writer">
+                <label for="writers">User</label>
+                <select name="writers" id="writers">
+                    <option value="0" selected>Select User</option>
+                    @foreach ($users as $user)
+                        @foreach ($userIds as $id)
+                            @if ($id == $user->id)
+                                <option value="{{$user->id}}">{{$user->name}}</option>
+                            @endif
+                        @endforeach
+                    @endforeach
+
+
+
+
+                </select>
+            </div>
             @foreach ($requests as $request)
-                <div class="request-container">
+                <div class="request-container" writer="{{$request->user_id}}">
 
                     <div class="request-content">
                         <span>User: {{ $request->user->name }} </span>
@@ -56,11 +74,11 @@
                             @error('question')
                                 <span class="error">{{$message}}</span>                                
                             @enderror
-                            <textarea name="question" id="question">{{$request->request}}</textarea>
+                            <textarea name="question" required id="question">{{$request->request}}</textarea>
                             @error('answer')
                                 <span class="error">{{$message}}</span>
                             @enderror
-                            <textarea name="answer" id="answer">{{old('answer')}}</textarea>
+                            <textarea name="answer" required id="answer">{{old('answer')}}</textarea>
                             <input type="submit" value="SUBMIT">
 
                         </form>

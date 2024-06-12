@@ -92,7 +92,7 @@
                         </div>
 
                         <div>
-                            <a href="{{ route('admin-users') }}"><button>Edit User</button></a>
+                            <a href="{{ route('admin-users') }}" onclick="return confirm('ARE YOUE SURE TO LEAVE THIS PAGE')"><button>Edit User</button></a>
                             
 
                             @if ($request->user->is_banned)

@@ -26,7 +26,7 @@ class AdminCommentsController extends Controller
         $users = User::all();
 
 
-        return view('admin.comments', compact('comments', 'userId', 'users'));
+        return view('admin.comments', compact('comments', 'userIds', 'users'));
     }
 
     /**

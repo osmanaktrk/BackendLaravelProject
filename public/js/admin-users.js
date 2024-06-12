@@ -133,6 +133,10 @@ cancelUserBtn.addEventListener("click", () => {
 
 userSearch.addEventListener("input", () => {
     let users = document.querySelectorAll(".users-container");
+
+
+
+    
     if (userSearch.value == "") {
         users.forEach((user) => {
             user.style.display = "flex";

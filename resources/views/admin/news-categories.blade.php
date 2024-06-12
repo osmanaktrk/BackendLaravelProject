@@ -81,7 +81,7 @@
                         <h5>{{$item->title}}</h5>
                         <p>{{$item->content}}</p>
                         <div>
-                            <a href="{{route('edit-news', $item->id)}}" onclick="return confirm('ARE YOU SURE TO LEAVE THE PAGE')"><button>EDIT NEWS</button></a>
+                            <a href="{{route('edit-news', $item->id)}}" onclick="return confirm('ARE YOUE SURE TO LEAVE ADMIN DASHBOARD')"><button>EDIT NEWS</button></a>
                             
                             <form action="{{route('delete-news', $item->id)}}" method="post">
                                 @csrf

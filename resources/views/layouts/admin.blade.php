@@ -21,29 +21,29 @@
         <ul class="nav-ul">
 
 
-            <a href="{{ route('home') }}">
+            <a href="{{ route('home') }}" onclick="return confirm('ARE YOUE SURE TO LEAVE ADMIN DASHBOARD')">
                 <li>HOME</li>
             </a>
-            <a href="{{ route('latest-news') }}">
+            <a href="{{ route('latest-news') }}" onclick="return confirm('ARE YOUE SURE TO LEAVE ADMIN DASHBOARD')">
                 <li>LATEST NEWS</li>
             </a>
-            <a href="{{ route('all-news') }}">
+            <a href="{{ route('all-news') }}" onclick="return confirm('ARE YOUE SURE TO LEAVE ADMIN DASHBOARD')">
                 <li>ALL NEWS</li>
             </a>
-            <a href="{{route('about')}}">
+            <a href="{{route('about')}}" onclick="return confirm('ARE YOUE SURE TO ADMIN LEAVE DASHBOARD')">
                 <li>ABOUT</li>
             </a>
-            <a href="{{ route('faq') }}">
+            <a href="{{ route('faq') }}" onclick="return confirm('ARE YOUE SURE TO ADMIN LEAVE DASHBOARD')">
                 <li>FAQ</li>
             </a>
-            <a href="{{ route('write-news') }}">
+            <a href="{{ route('write-news') }}" onclick="return confirm('ARE YOUE SURE TO LEAVE ADMIN DASHBOARD')">
                 <li>WRITE NEWS</li>
             </a>
             <a href="{{ route('admin-dashboard') }}">
                 <li>ADMIN DASHBOARD</li>
             </a>
 
-            <a href="{{ route('profile.edit') }}">
+            <a href="{{ route('profile.edit') }}" onclick="return confirm('ARE YOUE SURE TO LEAVE ADMIN DASHBOARD')">
                 <li>PROFILE</li>
             </a>
 

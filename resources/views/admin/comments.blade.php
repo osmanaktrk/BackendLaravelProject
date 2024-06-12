@@ -30,12 +30,32 @@
                 <label for="search-news"><button>SEARCH</button></label>
             </div>
 
+            <div>
+                <label for="writers">SELECT USER</label>
+                <br>
+                <br>
+                <select name="writers" id="writers">
+                    <option value="0" selected>Select User</option>
+                    @foreach ($users as $user)
+                        @foreach ($userIds as $id)
+                            @if ($id == $user->id)
+                                <option value="{{$user->id}}">{{$user->name}}</option>
+                            @endif
+                        @endforeach
+                    @endforeach
+
+
+
+
+                </select>
+            </div>
+
         </div>
 
 
         @foreach ($comments as $comment)
         
-        <div class="comment-container-box" user="{{$comment->user->name}}" news="{{$comment->news->title}}">
+        <div class="comment-container-box" user="{{$comment->user->name}}" news="{{$comment->news->title}}" writer="{{$comment->user_id}}">
             <div class="comment-container">
 
                 <div>
@@ -54,7 +74,7 @@
                     <br>
 
                     @if ($comment->user->name != null)
-                    <a href="{{ route('admin-users') }}"><button>{{$comment->user->name}}</button></a>
+                    <a href="{{ route('admin-users') }}" onclick="return confirm('ARE YOUE SURE TO LEAVE THIS PAGE')"><button>{{$comment->user->name}}</button></a>
 
                     @else
                         <span>Deleted User</span>
@@ -68,7 +88,7 @@
                     <br>
                     <span class="comment-title">{{$comment->news->title}}</span>
                     <br>
-                    <a href="{{ route('news', $comment->news->id) }}"><button>READ NEWS</button></a>
+                    <a href="{{ route('news', $comment->news->id) }}" onclick="return confirm('ARE YOUE SURE TO LEAVE ADMIN DASHBOARD')"><button>READ NEWS</button></a>
                 </div>
 
                 <div>

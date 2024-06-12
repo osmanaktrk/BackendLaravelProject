@@ -154,6 +154,12 @@
                 <div class="user-container-box">
                     <div class="users-container-top">
                         <div>
+                            <div class="user-avatar-box">
+                                <img class="user-avatar" src="{{ asset($user->avatar) }}" alt="new-user-avatar">
+                            </div>
+    
+                        </div>
+                        <div>
                             <span>User Name</span>
                             <span>{{ $user->name }}</span>
                         </div>
@@ -185,8 +191,8 @@
                     </div>
 
                     <div class="users-container-bottom">
-                        <a href="{{ route('admin-news') }}"><button>News: {{ $user->news->count() }}</button></a>
-                        <a href="{{ route('admin-comments') }}"><button>Comments:
+                        <a href="{{ route('admin-news') }}" onclick="return confirm('ARE YOUE SURE TO LEAVE ADMIN DASHBOARD')"><button>News: {{ $user->news->count() }}</button></a>
+                        <a href="{{ route('admin-comments') }}" onclick="return confirm('ARE YOUE SURE TO LEAVE ADMIN DASHBOARD')"><button>Comments:
                                 {{ $user->comments->count() }}</button></a>
 
 

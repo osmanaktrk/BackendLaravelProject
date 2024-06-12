@@ -71,7 +71,7 @@
                                 <span>{{ $question->answer }}</span>
                             </div>
                             <div class="buttons">
-                                <a href="{{route('admin-faq-questions')}}"><button>EDIT</button></a>
+                                <a href="{{route('admin-faq-questions')}}" onclick="return confirm('ARE YOUE SURE TO LEAVE THIS PAGE')"><button>EDIT</button></a>
                                 
                                 <form action="{{ route('faq-delete', $question->id) }}" method="post">
                                     @csrf

@@ -22,10 +22,10 @@
                         <span class="home-news-writer">by
 
                             
-                            @if ($news[0]->user->name != null)
+                            @if (isset($news[0]->user->name))
                                 {{ $news[0]->user->name }}
                             @else
-                                Deleted User
+                            <span class="error">Deleted User</span>
                             @endif
                             at {{ $news[0]->created_at->format('d/M/Y H:i') }}
                         </span>
@@ -45,10 +45,10 @@
 
                         <span class="home-news-category">{{ $news[1]->category->category }}</span>
                         <span class="home-news-writer">by
-                            @if ($news[1]->user->name != null)
+                            @if (isset($news[1]->user->name))
                                 {{ $news[1]->user->name }}
                             @else
-                                Deleted User
+                            <span class="error">Deleted User</span>
                             @endif
                             at {{ $news[1]->created_at->format('d/M/Y H:i') }}
                         </span>
@@ -69,10 +69,10 @@
                         <span class="home-news-category">{{ $news[2]->category->category }}</span>
 
                         <span class="home-news-writer">by
-                            @if ($news[2]->user->name != null)
+                            @if (isset($news[2]->user->name))
                                 {{ $news[2]->user->name }}
                             @else
-                                Deleted User
+                            <span class="error">Deleted User</span>
                             @endif
                             at {{ $news[2]->created_at->format('d/M/Y H:i') }}
                         </span>
@@ -104,10 +104,10 @@
                                 </div>
                                 <span class="latest-5-news-category">{{ $news[0]->category->category }}</span>
                                 <span class="latest-5-news-writer">by
-                                    @if ($news[0]->user->name != null)
+                                    @if (isset($news[0]->user->name))
                                         {{ $news[0]->user->name }} 
                                     @else
-                                        Deleted User
+                                    <span class="error">Deleted User</span>
                                     @endif
                                     at {{ $news[0]->created_at->format('d/M/Y H:i') }}</span>
                             </div>
@@ -125,10 +125,10 @@
                                 </div>
                                 <span class="latest-5-news-category">{{ $news[1]->category->category }}</span>
                                 <span class="latest-5-news-writer">by 
-                                    @if ($news[1]->user->name != null)
+                                    @if (isset($news[1]->user->name))
                                         {{ $news[1]->user->name }} 
                                     @else
-                                        Deleted User
+                                    <span class="error">Deleted User</span>
                                     @endif
                                     at {{ $news[1]->created_at->format('d/M/Y H:i') }}</span>
                             </div>
@@ -146,10 +146,10 @@
                                 </div>
                                 <span class="latest-5-news-category">{{ $news[2]->category->category }}</span>
                                 <span class="latest-5-news-writer">by 
-                                    @if ($news[2]->user->name != null)
+                                    @if (isset($news[2]->user->name))
                                         {{ $news[2]->user->name }} 
                                     @else
-                                        Deleted User
+                                    <span class="error">Deleted User</span>
                                     @endif
                                     at
                                     {{ $news[2]->created_at->format('d/M/Y H:i') }}</span>
@@ -168,10 +168,13 @@
                                 </div>
                                 <span class="latest-5-news-category">{{ $news[3]->category->category }}</span>
                                 <span class="latest-5-news-writer">by 
-                                    @if ($news[3]->user->name != null)
+                                   
+                                        
+                                
+                                    @if (isset($news[3]->user->name))
                                         {{ $news[3]->user->name }} 
                                     @else
-                                        Deleted User
+                                    <span class="error">Deleted User</span>
                                     @endif
                                     at
                                     {{ $news[3]->created_at->format('d/M/Y H:i') }}</span>
@@ -189,10 +192,10 @@
                                 </div>
                                 <span class="latest-5-news-category">{{ $news[4]->category->category }}</span>
                                 <span class="latest-5-news-writer">by 
-                                    @if ($news[4]->user->name != null)
+                                    @if (isset($news[4]->user->name))
                                         {{ $news[4]->user->name }} 
                                     @else
-                                        Deleted User
+                                    <span class="error">Deleted User</span>
                                     @endif
                                     at
                                     {{ $news[4]->created_at->format('d/M/Y H:i') }}</span>

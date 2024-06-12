@@ -33,7 +33,10 @@
    
 }
 
-
+.writer{
+    display: block;
+    text-align: center;
+}
 .edit-request{
     margin: 30px;
     padding: 50px;

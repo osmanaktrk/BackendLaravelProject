@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use App\Models\User;
+use Illuminate\Support\Facades\File;
+
 
 class ProfileController extends Controller
 {
@@ -71,9 +73,10 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
-
+        
         Auth::logout();
-
+        
+        File::delete($user->avatar);
         $user->delete();
 
         $request->session()->invalidate();

@@ -85,17 +85,22 @@
 
                 <div class="news-writer">
                     <span>Writer Name</span>
-                    <span>{{ $item->user->name }}</span>
+                    @if (isset($item->user->name))
+                                        {{ $item->user->name }} 
+                                    @else
+                                    <span class="error">Deleted User</span>
+                                    @endif
+                    
                 </div>
 
                 <div class="news-comments">
                     <span>Comments: {{ $item->comments->count() }}</span>
-                    <a href="{{ route('admin-comments') }}"><button>EDIT COMMENTS</button></a>
+                    <a href="{{ route('admin-comments') }}" onclick="return confirm('ARE YOUE SURE TO LEAVE THIS PAGE')"><button>EDIT COMMENTS</button></a>
                 </div>
 
                 <div class="news-buttons">
-                    <a href="{{ route('news', $item->id) }}"><button>READ NEWS</button></a>
-                    <a href="{{ route('edit-news', $item->id) }}"><button>EDIT NEWS</button></a>
+                    <a href="{{ route('news', $item->id) }}" onclick="return confirm('ARE YOUE SURE TO LEAVE ADMIN DASHBOARD')"><button>READ NEWS</button></a>
+                    <a href="{{ route('edit-news', $item->id) }}" onclick="return confirm('ARE YOUE SURE TO LEAVE ADMIN DASHBOARD')"><button>EDIT NEWS</button></a>
 
                     <form class="delete-news" action="{{ route('delete-news', $item->id) }}" method="post">
                         @csrf

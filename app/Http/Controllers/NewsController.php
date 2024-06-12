@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Comment;
+use Illuminate\Support\Facades\File;
 
 
 class NewsController extends Controller
@@ -74,8 +75,9 @@ class NewsController extends Controller
 
     public function delete($id){
 
-    
-        News::findOrFail($id)->deleteOrFail();
+        $del = News::findOrFail($id);
+        
+        File::delete($del->cover);
 
         Comment::where('news_id', $id)->delete();
 
@@ -138,6 +140,7 @@ class NewsController extends Controller
         ]);
 
         if (isset($validated['cover'])) {
+            File::delete($news->cover);
             $coverExt = $validated['cover']->getClientOriginalExtension();
             $coverName = $news->id;
             $cover = $coverName . '.' . $coverExt;
