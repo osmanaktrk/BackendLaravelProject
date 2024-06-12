@@ -21,11 +21,16 @@ class AdminNewsController extends Controller
         
         $news = News::all();
         $categories = Category::all();
+
+ 
+        
+        $userIds = News::orderBy('user_id')->get()->groupBy('user_id')->keys();
+        
+        $users = User::all();
         
 
-
         
-        return view('admin.news', compact('news', 'categories'));
+        return view('admin.news', compact('news', 'categories', "users", "userIds"));
     }
     /**
      * Display a listing of the resource.

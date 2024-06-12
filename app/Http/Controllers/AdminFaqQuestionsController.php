@@ -19,11 +19,11 @@ class AdminFaqQuestionsController extends Controller
 
     public function showAdminFaqQuestions(){
        
-        $faqQuestions = Question::all();
-
+        $faqs = Question::all();
+        $categories = FaqCategory::all();
 
         
-        return view('admin.faq-questions');
+        return view('admin.faq-questions', compact('faqs', 'categories'));
     }
     /**
      * Display a listing of the resource.

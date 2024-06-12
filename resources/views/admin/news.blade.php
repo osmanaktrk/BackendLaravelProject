@@ -18,13 +18,38 @@
                 <select name="category" id="categories">
                     <option value="0" selected>Select Categori</option>
                     @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->category}}</option>
+                        <option value="{{ $category->id }}">{{ $category->category }}</option>
                     @endforeach
-                    
+
                 </select>
             </div>
 
-        
+            <div class="category-select">
+                <label for="writers">Writer</label>
+                <select name="writers" id="writers">
+                    <option value="0" selected>Select Writer</option>
+                    @foreach ($users as $user)
+                        @foreach ($userIds as $id)
+                            @if ($id == $user->id)
+                                <option value="{{$user->id}}">{{$user->name}}</option>
+                            @endif
+                        @endforeach
+                    @endforeach
+
+
+
+
+                </select>
+            </div>
+
+
+
+
+
+
+
+
+
 
         </div>
 
@@ -92,5 +117,5 @@
 @endsection
 
 @section('js')
-    <script src="{{asset('js/admin-news.js')}}"></script>
+    <script src="{{ asset('js/admin-news.js') }}"></script>
 @endsection
