@@ -45,7 +45,12 @@
                         <div class="all-news" category="{{ $item->category->category }}">
                             <div class="all-news-img">
                                 <div class="all-news-img-box">
-                                    <img src="{{ asset($item->cover) }}" alt="demo">
+                                    @if (isset($item->cover))
+                                        <img src="{{ asset($item->cover) }}" alt="cover">
+                                    @else
+                                    <img src="" alt="cover">
+                                    @endif
+                                    
                                 </div>
                                 <span class="all-news-category">{{ $item->category->category }}</span>
                                 <span class="all-news-writer">by 

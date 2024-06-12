@@ -15,8 +15,10 @@
         @foreach ($contacts as $contact)
 
         <div class="contact-messages">
-            <div>
-                <button>SEND E-MAIL</button>
+            <div><a href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ifkv=AS5LTAStb4Wlti3qgV0HLIZqnBQR6XGnvjOkxEUQXj_hvVYVpJ1M04l5O31SHBLEXDvu3O-OxRvWZg&rip=1&sacu=1&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S-1425705971%3A1718203470983034&ddm=0">
+            <button>SEND E-MAIL</button>
+            </a>
+                
                 <br>
                 <form action="{{route('admin-contact-delete')}}" method="post">
                     @csrf

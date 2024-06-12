@@ -12,9 +12,12 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
+            
             "admin" => \App\Http\Middleware\AdminMiddleware::class,
             "writer" => \App\Http\Middleware\WriterMiddleware::class,
             "banned" => \App\Http\Middleware\BannedMiddleware::class,
+            'username' => \App\Http\Middleware\UsernameMiddleware::class,
+
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

@@ -11,7 +11,7 @@ class Comment extends Model
 
     protected $table = 'comments';
 
-    protected $fillable = ['user_id', 'news_id', 'comment', 'created_at'];
+    protected $fillable = ['id', 'user_id', 'news_id', 'comment', 'created_at'];
 
     public function user(){
         return $this->belongsTo('App\Models\User');

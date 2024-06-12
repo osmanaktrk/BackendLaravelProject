@@ -15,7 +15,14 @@
             @isset($news[0])
                 <div class="home-news-1">
                     <div class="home-news-1-img">
-                        <img src="{{ asset($news[0]->cover) }}" alt="demo">
+
+                        @if (isset($news[0]->cover))
+                            <img src="{{ asset($news[0]->cover) }}" alt="cover">
+                        @else
+                        <img src="" alt="cover">
+                        @endif
+
+                        
                     </div>
                     <div>
                         <span class="home-news-category">{{ $news[0]->category->category }}</span>
@@ -40,7 +47,12 @@
                     <div class="home-news-2-img">
 
                         <div class="home-news-2-img-box">
-                            <img src="{{ asset($news[1]->cover) }}" alt="demo">
+                            @if (isset($news[1]->cover))
+                            <img src="{{ asset($news[1]->cover) }}" alt="cover">
+                        @else
+                        <img src="" alt="cover">
+                        @endif
+                            
                         </div>
 
                         <span class="home-news-category">{{ $news[1]->category->category }}</span>
@@ -64,7 +76,11 @@
 
                     <div class="home-news-3-img">
                         <div class="home-news-3-img-box">
-                            <img src="{{ asset($news[2]->cover) }}" alt="demo">
+                            @if (isset($news[2]->cover))
+                            <img src="{{ asset($news[2]->cover) }}" alt="cover">
+                        @else
+                        <img src="" alt="cover">
+                        @endif
                         </div>
                         <span class="home-news-category">{{ $news[2]->category->category }}</span>
 
@@ -100,7 +116,11 @@
                         <div class="latest-5-news">
                             <div class="latest-5-news-img">
                                 <div class="latest-5-news-img-box">
-                                    <img src="{{ asset($news[0]->cover) }}" alt="demo">
+                                    @if (isset($news[0]->cover))
+                            <img src="{{ asset($news[0]->cover) }}" alt="cover">
+                        @else
+                        <img src="" alt="cover">
+                        @endif
                                 </div>
                                 <span class="latest-5-news-category">{{ $news[0]->category->category }}</span>
                                 <span class="latest-5-news-writer">by
@@ -121,7 +141,11 @@
                         <div class="latest-5-news">
                             <div class="latest-5-news-img">
                                 <div class="latest-5-news-img-box">
-                                    <img src="{{ asset($news[1]->cover) }}" alt="demo">
+                                    @if (isset($news[1]->cover))
+                            <img src="{{ asset($news[1]->cover) }}" alt="cover">
+                        @else
+                        <img src="" alt="cover">
+                        @endif
                                 </div>
                                 <span class="latest-5-news-category">{{ $news[1]->category->category }}</span>
                                 <span class="latest-5-news-writer">by 
@@ -142,7 +166,11 @@
                        <div class="latest-5-news">
                             <div class="latest-5-news-img">
                                 <div class="latest-5-news-img-box">
-                                    <img src="{{ asset($news[2]->cover) }}" alt="demo">
+                                    @if (isset($news[2]->cover))
+                            <img src="{{ asset($news[2]->cover) }}" alt="cover">
+                        @else
+                        <img src="" alt="cover">
+                        @endif
                                 </div>
                                 <span class="latest-5-news-category">{{ $news[2]->category->category }}</span>
                                 <span class="latest-5-news-writer">by 
@@ -164,7 +192,11 @@
                         <div class="latest-5-news">
                             <div class="latest-5-news-img">
                                 <div class="latest-5-news-img-box">
-                                    <img src="{{ asset($news[3]->cover) }}" alt="demo">
+                                    @if (isset($news[3]->cover))
+                            <img src="{{ asset($news[3]->cover) }}" alt="cover">
+                        @else
+                        <img src="" alt="cover">
+                        @endif
                                 </div>
                                 <span class="latest-5-news-category">{{ $news[3]->category->category }}</span>
                                 <span class="latest-5-news-writer">by 
@@ -188,7 +220,11 @@
                          <div class="latest-5-news">
                             <div class="latest-5-news-img">
                                 <div class="latest-5-news-img-box">
-                                    <img src="{{ asset($news[4]->cover) }}" alt="demo">
+                                    @if (isset($news[4]->cover))
+                            <img src="{{ asset($news[4]->cover) }}" alt="cover">
+                        @else
+                        <img src="" alt="cover">
+                        @endif
                                 </div>
                                 <span class="latest-5-news-category">{{ $news[4]->category->category }}</span>
                                 <span class="latest-5-news-writer">by 

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->longText('question')->unique();
             $table->longText('answer');
-            $table->integer('faq_category_id');
+            $table->foreignId('faq_category_id');
             $table->timestamps();
         });
     }

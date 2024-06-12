@@ -11,7 +11,7 @@ class Question extends Model
 
     protected $table = 'questions';
 
-    protected $fillable = ['question', 'answer', 'faq_category_id'];
+    protected $fillable = ['id', 'question', 'answer', 'faq_category_id'];
 
     public function category(){
         return $this->belongsTo("App\Models\FaqCategory");

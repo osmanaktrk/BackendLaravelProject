@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('usertype_requests', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->foreignId('user_id');
             $table->string('request');
             $table->timestamps();
         });
