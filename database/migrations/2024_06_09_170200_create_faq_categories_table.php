@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('category')->unique();
             $table->timestamps();
         });
+
+        
     }
 
     /**

@@ -20,6 +20,7 @@ class ContactFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->email(),
             'message' => fake()->text(300),
+            
         ];
     }
 }

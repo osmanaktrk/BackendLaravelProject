@@ -20,7 +20,7 @@ class QuestionRequestFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'request' =>fake()->text(200),
+            'request' =>fake()->text(100),
         ];
     }
 }

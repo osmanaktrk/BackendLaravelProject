@@ -23,7 +23,7 @@ class CommentFactory extends Factory
         return [
             'user_id' => User::factory(),
             'news_id' => News::factory(),
-            'comment' => fake()->text(300),
+            'comment' => fake()->text(500),
         ];
     }
 }

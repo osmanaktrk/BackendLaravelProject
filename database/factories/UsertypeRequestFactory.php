@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Spatie\LaravelData\Attributes\Validation\Between;
 use App\Models\User;
 
 
@@ -21,7 +20,7 @@ class UsertypeRequestFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'request' => Between::create('user', 'admin', 'writer'),
+            'request' => fake()->randomElement(['user', 'admin', 'writer'])
         ];
     }
 }

@@ -18,7 +18,7 @@ class FaqCategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'category' => fake()->unique()->text(8),
+            'category' => fake()->unique()->randomElement(['Register', 'News', 'General', 'Comment', 'Contact', 'FAQ', 'Profile']),
         ];
     }
 }

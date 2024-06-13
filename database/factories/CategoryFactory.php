@@ -18,7 +18,12 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'category' => fake()->unique()->text(8),
+            'category' => fake()->unique()->randomElement(['General', 'Politic', 'Technology', 'Sport', 'Business', 'Culture','Travel']),
         ];
     }
+
+
+
+
+
 }

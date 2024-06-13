@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\FaqCategory;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,9 +16,11 @@ return new class extends Migration
             $table->id();
             $table->longText('question')->unique();
             $table->longText('answer');
-            $table->foreignId('faq_category_id');
+            $table->foreignIdFor(FaqCategory::class);
             $table->timestamps();
         });
+
+        
     }
 
     /**

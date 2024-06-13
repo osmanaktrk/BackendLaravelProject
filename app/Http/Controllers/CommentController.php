@@ -46,7 +46,7 @@ class CommentController extends Controller
     public function delete($id, Request $request)
     {
         $comment = Comment::findOrFail($id);
-        if(Auth::user()->id != $comment->user_id || Auth::user()->usertype != 'admin'){
+        if(Auth::user()->id != $comment->user_id && Auth::user()->usertype != 'admin'){
             abort(403, "UNAUTHORIZED ENTRY");
         }
 
