@@ -22,7 +22,7 @@
                 @error('title')
                     <span class="error">{{ $message }}</span>
                 @enderror
-                <input type="text" name="title" id="title" value="{{ $news->title }}">
+                <input type="text" name="title" id="title" value="{{ $news->title }}" required>
             </div>
 
 
@@ -42,7 +42,7 @@
                 @error('category')
                     <span class="error">{{ $message }}</span>
                 @enderror
-                <select name="category" id="category" value="{{ $news->category_id }}">
+                <select name="category" id="category" value="{{ $news->category_id }}" required>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->category }}</option>
                     @endforeach
@@ -54,7 +54,7 @@
                 @error('content')
                     <span class="error">{{ $message }}</span>
                 @enderror
-                <textarea name="content" id="content">{{ $news->content }}</textarea>
+                <textarea name="content" id="content" required>{{ $news->content }}</textarea>
             </div>
 
             <div class="submit">

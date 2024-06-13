@@ -20,7 +20,7 @@
             @error('title')
                 <span class="error">{{$message}}</span>
             @enderror
-            <input type="text" name="title" id="title" value="{{old('title')}}">
+            <input type="text" name="title" id="title" value="{{old('title')}}" required>
         </div>
         
 
@@ -32,7 +32,7 @@
             @error('cover')
                 <span class="error">{{$message}}</span>
             @enderror
-            <input accept="image/*" type="file" name="cover" id="cover" value="{{old('cover')}}">
+            <input accept="image/*" type="file" name="cover" id="cover" value="{{old('cover')}}" required>
         </div>
         
         <div class="category">
@@ -52,7 +52,7 @@
             @error('content')
                 <span class="error">{{$message}}</span>
             @enderror
-            <textarea name="content" id="content">{{old('content')}}</textarea>
+            <textarea name="content" id="content" required>{{old('content')}}</textarea>
         </div>
 
         <div class="submit">
