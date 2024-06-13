@@ -36,6 +36,49 @@
                 <li>Writer</li>
                 <li>User</li>
             </ul>
+
+            <p>Default Users</p>
+
+            <ul>
+                <li>
+                    Admin
+                    <ul>
+                        <li>Username: admin</li>
+                        <li>Email: admin@ehb.be</li>
+                        <li>Password: Password!321</li>
+                    </ul>
+                </li>
+
+                <li>
+                    Writer
+                    <ul>
+                        <li>Username: writer</li>
+                        <li>Email: writer@ehb.be</li>
+                        <li>Password: password</li>
+                    </ul>
+                </li>
+
+                <li>
+                    User
+                    <ul>
+                        <li>Username: user</li>
+                        <li>Email: user@ehb.be</li>
+                        <li>Password: password</li>
+                    </ul>
+                </li>
+
+                <li>
+                    Random Users
+                    <ul>
+                        <li>Username: Random</li>
+                        <li>Email: Random</li>
+                        <li>Default-Password: password</li>
+                    </ul>
+                </li>
+                
+
+            </ul>
+
             <p>Users can request to change their type, and only the admin can change it or accapt or reject the requests.</p>
 
             <ul>
